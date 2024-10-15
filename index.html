@@ -23,7 +23,7 @@
         <section class="home" id="home">
             <div class="home-content">
                 <h1>Hi, It's <span>Eric</span></h1>
-                <h3 class="text-animation">I'm a <span class="auto-type"></span></h3>
+                <h3 class="text-animation">I'm a <span class="auto-type1"></span></h3>
                 <p>
                     Hi I'm Eric but just call me Sen! <br>
                     A 3rd Year Student Taking A <span>Bachelors of Science in Computer Science </span> at Tarlac State University (TSU) 
@@ -76,31 +76,28 @@
         
         <section class="skills" id="skills">
             <h2 class="heading">Skills</h2>
-            <div class="row">
-                <div class="column">
-                    <h3> Programming Languages </h3>
+            <div class="specifics">
+                <div class="programming-languages">
+                    <h2> Programming Languages </h2>
                     <ul>
-                        <li> HTML </li>
-                        <li> CSS </li>
-                        <li> JavaScript </li>
-                        <li> Python (Matplotlib, Pandas, & NumPy) </li>
-                        <li> Java </li>
-                        <li> VB.NET </li>
+                        <li> <h3>HTML </h3><span class="bar"><span class="html"></span> </li>
+                        <li> <h3>CSS </h3><span class="bar"><span class="css"></span> </li>
+                        <li> <h3>JavaScript </h3><span class="bar"><span class="javascript"></span> </li>
+                        <li> <h3>Python </h3><span class="bar"><span class="python"></span> </li>
+                        <li> <h3>Java </h3><span class="bar"><span class="java"></span> </li>
+                        <li> <h3>VB.NET </h3><span class="bar"><span class="vb"></span> </li>
                     </ul>
                 </div>
-                <div class="column">
-                    <h3> Software Tools </h3>
+                <div class="software-tools">
+                    <h2> Software Tools </h2>
                     <ul>
-                        <li> GitHub </li>
-                        <li> VS Code </li>
-                        <li> Visual Studio </li>
-                        <li> PyCharm </li>
-                        <li> Microsoft Access</li>
-                        <li> Microsoft Excel </li>
-                        <li> Google Sheets </li>
+                        <li> GitHub <span class="bar"><span class="github"></span> </li>
+                        <li> VS Code <span class="bar"><span class="vs"></span> </li>
+                        <li> Visual Studio <span class="bar"><span class="visual"></span> </li>
+                        <li> PyCharm <span class="bar"><span class="pycharm"></span> </li>
                     </ul>
                 </div>
-              </div> 
+            </div>
         </section>
 
         <section class="projects" id="projects">
@@ -115,6 +112,13 @@
 
         <section class="about" id="about">
             <h2 class="heading">About <span>Me</span></h2>
+            <div class="info">
+                <p> 
+                    <h2> Hi I'm Eric but just call me Sen! </h2>
+                    <h2> A 3rd Year Student Taking A <span>Bachelors of Science in Computer Science</> at Tarlac State University (TSU) </h2>
+                    <h2> In the future I plan to be a <span class = "auto-type2"></span></h2>
+                </p>
+            </div>
             <div class="Hobbies">
                 <h3> Hobbies </h3>
                 <ul>
@@ -189,7 +193,13 @@
         <script src="script.js"></script>
         <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
         <script>
-            var typed = new Typed(".auto-type",{
+            var typed = new Typed(".auto-type1",{
+                strings: ["Developer", "Designer", "Programmer"],
+                typespeed: 150,
+                backspeed: 150,
+                loop: true
+            })
+            var typed = new Typed(".auto-type2",{
                 strings: ["Data Scientist", "Web Developer", "Quant Analyst"],
                 typespeed: 150,
                 backspeed: 150,
