@@ -4,6 +4,7 @@
 - [Overview](#Overview)  
 - [Features](#Features)  
 - [Technologies Used](#Technologies-Used)  
+- [Installation](#Installation)
 - [Usage](#Usage)  
 - [Contribution](#Contribution)  
 - [Contributing](#contributing)  
@@ -28,6 +29,24 @@ Welcome to my Resume Site! This website serves as a digital representation of my
 - CSS: Styling and layout, utilizing modern CSS features for a sleek design.
 - JavaScript: For interactive elements and dynamic features (whenver applicable).
 Responsive Design: Media queries for optimal display across devices.
+
+## **Installation**
+To run this project locally, follow these steps:
+
+1. **Clone the Repository:**
+
+```bash
+git clone https://github.com/Ensues/Resume-Website-V3.git
+```
+2. **Navigate to the Project Directory:**
+
+```bash
+cd resume-site
+```
+
+3. **Open the index.html file in your preferred web browser to view the site.**
+
+Or just open through gitpage from about
 
 ## **Usage**
 
