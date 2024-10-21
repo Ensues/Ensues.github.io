@@ -10,15 +10,17 @@
     font-family:Arial, Helvetica, sans-serif;
 }
 :root {
-    --bg-color: #080808; /* Dark background */
-    --second-bg-color: #131313; /* Dark secondary background */
-    --text-color: white; /* Dark text color */
-    --main-color: #af0000; /* Main color */
+    /* Dark Mode Colors */
+    --bg-color: #080808;
+    --second-bg-color: #131313; 
+    --text-color: white; 
+    --main-color: #689eb8; 
     
     /* Light Mode Colors */
-    --light-bg-color: #f0f0f0; /* Light background */
-    --light-text-color: #333; /* Dark text color */
-    --light-main-color: #007bff; /* Light mode main color */
+    --light-bg-color: #f0f0f0;
+    --light-second-bg-color: #d1d8eb;
+    --light-text-color: #333; 
+    --light-main-color: #689eb8; 
 }
 html{
     font-size: 60%;
@@ -327,7 +329,7 @@ span{
 }
 /* Skills */
 .skills .specifics{
-    width: 500px;
+    width: 80%;
     margin: 60px auto;
     color: var(--text-color);
     padding: 20px;
@@ -652,16 +654,47 @@ body.light-mode {
 }
 
 /* Social Icons */
-.social-icons.light-mode a {
+.social-icons a.light-mode {
     background-color: var(--light-bg-color); /* Set the background color in light mode */
     color: var(--light-text-color); /* Set the text color in light mode */
     border: 2px solid var(--light-border-color); /* Optional: Set border color */
 }
-
 /* Hover State for Social Icons in Light Mode */
 .social-icons.light-mode a:hover {
-    background-color: var(--hover-bg-color, #007bff); /* Change background color on hover */
+    background-color: var(--light-main-color); /* Change background color on hover */
     color: var(--hover-text-color, #ffffff); /* Change text color on hover */
+}
+
+/* Education */
+.education.light-mode{
+    background-color: var(--light-bg-color);
+    color: var(--light-text-color);
+}
+
+/* Skills */
+.light-mode .skills .specifics{
+    background-color: var(--light-second-bg-color); /* Light mode background color */
+    color: var(--light-text-color); /* Change text color if needed */
+}
+
+/* Projects */
+.projects.light-mode{
+    background-color: var(--light-bg-color);
+}
+
+/* Certificates */
+.certificates.light-mode{
+    background-color: var(--light-bg-color);
+}
+
+/* About */
+.about.light-mode{
+    background-color: var(--light-bg-color);
+}
+
+/* Contact Me */
+.contact.light-mode{
+    background-color: var(--light-bg-color);
 }
 
 /* Footer Styles */
@@ -699,6 +732,7 @@ body.light-mode {
 .header, .navbar, .footer, .section {
     transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
 }
+
 /* Responsiveness */
 @media(max-width:1285px){
     html{
