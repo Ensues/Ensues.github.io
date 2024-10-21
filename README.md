@@ -25,7 +25,7 @@ Welcome to my Resume Site! This website serves as a digital representation of my
 
 ## **Technologies Used**
 
-- HTML: Structure of the website.
+- HTML: For the structure and organization of the content.
 - CSS: Styling and layout, utilizing modern CSS features for a sleek design.
 - JavaScript: For interactive elements and dynamic features (whenver applicable).
 Responsive Design: Media queries for optimal display across devices.
@@ -63,7 +63,7 @@ This project is licensed under the [MIT License](LICENSE).
 
 ## Current Status
 
-**Please Note:** This site is currently under construction and is a work in progress. I am actively developing it and will be adding more content soon and fixing stuff. Thank you for your patience!
+🚧 **Under Construction**: The site is a work in progress. New features and content will be added regularly, along with tweaks to improve functionality and user experience. Stay tuned for updates!
 
 ## **Contact**
 For any questions or inquiries, please contact me at:
