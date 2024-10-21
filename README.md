@@ -61,6 +61,12 @@ If you'd like to contribute to this project, feel free to fork the repository an
 ## **License**
 This project is licensed under the [MIT License](LICENSE).
 
+## Current Status
+
+**Please Note:** This site is currently under construction and is a work in progress. I am actively developing it and will be adding more content soon and fixing stuff. Thank you for your patience!
+
+## Features
+
 ## **Contact**
 For any questions or inquiries, please contact me at:
 
