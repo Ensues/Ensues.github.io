@@ -10,10 +10,15 @@
     font-family:Arial, Helvetica, sans-serif;
 }
 :root {
-    --bg-color: #080808;
-    --second-bg-color: #131313;
-    --text-color: white;
-    --main-color:#af0000;
+    --bg-color: #080808; /* Dark background */
+    --second-bg-color: #131313; /* Dark secondary background */
+    --text-color: white; /* Dark text color */
+    --main-color: #af0000; /* Main color */
+    
+    /* Light Mode Colors */
+    --light-bg-color: #f0f0f0; /* Light background */
+    --light-text-color: #333; /* Dark text color */
+    --light-main-color: #007bff; /* Light mode main color */
 }
 html{
     font-size: 60%;
@@ -60,7 +65,8 @@ body{
 .navbar a{
     font-size: 1.8rem;
     color: var(--text-color);
-    margin-left: 4rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
     font-weight: 500;
     transition: 0.3s ease-in-out;
     border-bottom: 3px solid transparent;
@@ -583,6 +589,93 @@ span{
     text-align: center;
     font-size: 16px;
     color: var(--text-color);
+}
+/* General Light Mode Styles */
+body.light-mode {
+    background-color: var(--light-bg-color); /* Light gray background */
+    color: var(--light-text-color); /* Dark text color */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth transition */
+}
+
+/* Header Styles */
+.header.light-mode {
+    background-color: #ffffff; /* White background */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+/* Navbar Styles */
+.navbar.light-mode {
+    background-color: #ffffff; /* White background */
+}
+
+.navbar.light-mode a {
+    color: var(--light-text-color); /* Dark text color */
+}
+
+.navbar.light-mode a:hover {
+    color: var(--main-color); /* Light gray on hover */
+}
+
+/* Active Link Styles */
+.navbar.light-mode a.active {
+    color: var(--light-main-color); /* Blue for active link */
+    font-weight: bold; /* Bold active link */
+}
+
+/* Buttons */
+.btn.light-mode {
+    background-color: var(--light-main-color, #007bff); /* Light mode background color */
+    color: var(--light-text-color, #333); /* Light mode text color */
+    border: 2px solid var(--light-border-color, #007bff); /* Border color in light mode */
+}
+
+/* Social Icons */
+.social-icons.light-mode a {
+    background-color: var(--light-bg-color); /* Set the background color in light mode */
+    color: var(--light-text-color); /* Set the text color in light mode */
+    border: 2px solid var(--light-border-color); /* Optional: Set border color */
+}
+
+/* Hover State for Social Icons in Light Mode */
+.social-icons.light-mode a:hover {
+    background-color: var(--hover-bg-color, #007bff); /* Change background color on hover */
+    color: var(--hover-text-color, #ffffff); /* Change text color on hover */
+}
+
+/* Footer Styles */
+.footer.light-mode {
+    background-color: #ffffff; /* White background */
+    color: var(--light-text-color); /* Dark text color */
+}
+.footer.light-mode ul li a {
+    color: var(--light-text-color); /* Dark text color for links */
+    border-bottom: 3px solid transparent; /* Transparent border */
+    transition: 0.3s ease-in-out; /* Smooth transition */
+}
+.footer.light-mode ul li a:hover {
+    border-bottom: 3px solid var(--light-main-color); /* Change border color on hover */
+    color: var(--light-main-color); /* Change text color on hover */
+}
+.footer.light-mode .copyright{
+    background-color: #ffffff; /* White background */
+    color: var(--light-text-color); /* Dark text color */
+}
+
+/* Section Styles */
+.section.light-mode {
+    background-color: #ffffff; /* White background */
+    color: var(--light-text-color); /* Dark text color */
+    border: 1px solid #ddd; /* Light border */
+}
+
+/* Logo Styles */
+.logo.light-mode {
+    color: var(--light-text-color); /* Black color for the logo in light mode */
+}
+
+/* Transition Effects */
+.header, .navbar, .footer, .section {
+    transition: background-color 0.3s ease, color 0.3s ease, border 0.3s ease;
 }
 /* Responsiveness */
 @media(max-width:1285px){

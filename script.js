@@ -1,3 +1,5 @@
+// menu icon
+
 let menuIcon = document.querySelector('#menu-icon');
 let navbar = document.querySelector('.navbar');
 let sections = document. querySelectorAll('.section');
@@ -22,3 +24,20 @@ menuIcon.onclick = () => {
     menuIcon.classList.toggle('bx-x');
     navbar.classList.toggle('active');
 }
+
+// Light mode
+
+document.getElementById('theme-toggle').addEventListener('click', function() {
+    document.body.classList.toggle('light-mode');
+    document.querySelector('.header').classList.toggle('light-mode');
+    document.querySelector('.navbar').classList.toggle('light-mode');
+    document.querySelector('.footer').classList.toggle('light-mode');
+    document.querySelector('.logo').classList.toggle('light-mode'); // Add this line
+
+    // Change button text based on the current mode
+    if (document.body.classList.contains('light-mode')) {
+        this.textContent = 'Dark Mode';
+    } else {
+        this.textContent = 'Light Mode';
+    }
+});
