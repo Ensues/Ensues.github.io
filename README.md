@@ -46,7 +46,7 @@ cd resume-site
 
 3. **Open the index.html file in your preferred web browser to view the site.**
 
-Or just open through gitpage from about
+Or just open through gitpage from the link:  ensues.github.io/ 
 
 ## **Usage**
 
