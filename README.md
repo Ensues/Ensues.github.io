@@ -17,18 +17,17 @@ Welcome to my Resume Site! This website serves as a digital representation of my
 
 ## **Features**
 
-- Responsive Design: The site is fully responsive, ensuring an optimal viewing experience on devices of all sizes, from desktops to mobile phones.
-- Dark and Light Modes: Users can switch between dark and light themes for a personalized viewing experience.
-- Smooth Scrolling: The site features smooth scrolling for a seamless navigation experience.
-- Interactive Elements: Hover effects and animations enhance user interaction and engagement.
-- Social Media Links: Connect with me through various social media platforms via easily accessible icons.
+- **Responsive Design**: The site is fully responsive, ensuring an optimal viewing experience on devices of all sizes, from desktops to mobile phones.
+- **Dark and Light Modes**: Users can switch between dark and light themes for a personalized viewing experience.
+- **Smooth Scrolling**: The site features smooth scrolling for a seamless navigation experience.
+- **Interactive Elements**: Hover effects and animations enhance user interaction and engagement.
+- **Social Media Links**: Connect with me through various social media platforms via easily accessible icons.
 
-## **Technologies Used**
+## **Languages Used**
 
-- HTML: For the structure and organization of the content.
-- CSS: Styling and layout, utilizing modern CSS features for a sleek design.
-- JavaScript: For interactive elements and dynamic features (whenver applicable).
-Responsive Design: Media queries for optimal display across devices.
+- **HTML**: For the structure and organization of the content.
+- **CSS**: Styling and layout, utilizing modern CSS features for a sleek design.
+- **JavaScript**: For interactive elements and dynamic features (whenver applicable).
 
 ## **Installation**
 To run this project locally, follow these steps:
