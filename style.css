@@ -558,12 +558,12 @@ span{
     position: relative;
     bottom: 0;
     width: 100%;
-    padding: 40px 0;
+    padding: 20px 0;
     background-color: var(--second-bg-color);
 }
 .footer .social{
     text-align: center;
-    padding-bottom: 25px;
+    padding-bottom: 20px;
     color: var(--main-color);
 }
 .footer .social a{
@@ -606,7 +606,7 @@ span{
     padding: 0 15px;
 }
 .footer .copyright{
-    margin-top: 50px;
+    margin-top: 20px;
     text-align: center;
     font-size: 16px;
     color: var(--text-color);
