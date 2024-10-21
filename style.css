@@ -44,7 +44,7 @@ body{
     top:0;
     left: 0;
     width: 100%;
-    padding: 4rem 12% 4rem;
+    padding: 1rem 8% 1rem;
     background: rgba(0,0,0,0.3);
     backdrop-filter: blur(10px);
     display: flex;
@@ -75,7 +75,6 @@ body{
 .navbar a.active{
     color: var(--main-color);
     border-bottom: 3px solid var(--main-color);
-
 }
 #menu-icon{
     font-size: 3.6rem;
@@ -85,6 +84,28 @@ body{
 section{
     min-height: 100vh;
     padding: 10rem 12% 10rem;
+}
+/* Go to top button */
+.go-to-btn{
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    background: var(--main-color);
+    bottom: 20px;
+    right: 20px;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid var(--main-color);
+    font-size: 2.5rem;
+    border-radius: 50%;
+    color: var(--main-color);
+    margin: 3rem 1.5rem 3rem 0;
+    transition: 0.3s ease-in-out;
+}
+.back-to-top {
+    color: var(--light-bg-color);
+    text-align: center;
 }
 /* Home */
 .home{
@@ -605,7 +626,8 @@ body.light-mode {
 
 /* Navbar Styles */
 .navbar.light-mode {
-    background-color: #ffffff; /* White background */
+    background: transparent; /* Semi-transparent white background */
+    backdrop-filter: blur(10px); /* Apply blur effect */
 }
 
 .navbar.light-mode a {
