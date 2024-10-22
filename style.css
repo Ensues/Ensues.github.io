@@ -347,6 +347,7 @@ span{
     background: var(--second-bg-color);
     border-radius: 1%;
     text-transform: uppercase;
+    border: 2px solid var(--main-color);
 }
  .skills h2{
     text-align: center;
