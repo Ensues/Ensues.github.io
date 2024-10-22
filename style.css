@@ -243,7 +243,7 @@ span{
 }
 /* Education */
 .education{
-    padding: 100px 15px;
+    padding-top: 30px;
     background: var(--second-bg-color);
 }
 .education h2{
@@ -335,6 +335,10 @@ span{
     width: 50px;
 }
 /* Skills */
+.skills{
+    padding-top: 30px;
+}
+
 .skills .specifics{
     width: 90%;
     margin: 60px auto;
@@ -498,7 +502,7 @@ span{
     margin: 5rem 0;
 }
 .projects{
-    padding: 100px 15px;
+    padding-top: 30px;
     background: var(--second-bg-color);
 }
 /* Certificates */
@@ -508,7 +512,7 @@ span{
     margin: 5rem 0;
 }
 .certificates{
-    padding: 100px 15px;
+    padding-top: 30px;
     background: var(--bg-color);
 }
 /* About Me */
@@ -518,7 +522,7 @@ span{
     margin: 5rem 0;
 }
 .about{
-    padding: 100px 15px;
+    padding-top: 30px;
     background: var(--second-bg-color);
 }
 /* contact me */
@@ -529,6 +533,7 @@ span{
 }
 .contact{
     background-color: var(--bg-color);
+    padding-top: 30px;
 }
 .contact h2{
     margin-bottom: 3rem;
@@ -681,10 +686,10 @@ body.light-mode {
 
 /* Education */
 .education.light-mode{
-    background-color: var(--light-bg-color);
+    background-color: var(--light-second-bg-color);
 }
 .education.light-mode .timeline-content{
-    background-color: var(--light-second-bg-color);
+    background-color: var(--light-bg-color);
     border: 2px solid var(--second-bg-color);
 }
 .education.light-mode .timeline-date{
@@ -709,7 +714,7 @@ body.light-mode {
 
 /* Projects */
 .projects.light-mode{
-    background-color: var(--light-bg-color);
+    background-color: var(--light-second-bg-color);
 }
 
 /* Certificates */
@@ -719,7 +724,7 @@ body.light-mode {
 
 /* About */
 .about.light-mode{
-    background-color: var(--light-bg-color);
+    background-color: var(--light-second-bg-color);
 }
 
 /* Contact Me */
@@ -736,7 +741,7 @@ body.light-mode {
 
 /* Footer Styles */
 .footer.light-mode {
-    background-color: var(--light-bg-color); /* White background */
+    background-color: var(--light-second-bg-color); /* White background */
     color: var(--light-text-color); /* Dark text color */
 }
 .footer.light-mode ul li a {
