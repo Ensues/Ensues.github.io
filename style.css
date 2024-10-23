@@ -533,10 +533,6 @@ span{
     background-color: var(--bg-color);
     padding-top: 30px;
 }
-.contact h2{
-    margin-bottom: 3rem;
-    color: var(--text-color);
-}
 .contact form{
     display: flex;
     align-items: center;
