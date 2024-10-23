@@ -362,28 +362,38 @@ span{
     scale: 1.1;
  }
  .skills h3{
-    margin: 5px;
+    width: 100px;
+    margin: 0;
+ }
+ .skills ul{
+    padding: 0;
+    list-style-type: none;
  }
  .skills li{
     margin: 20px 0;
     padding: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
  }
  .skills .bar{
-    background: var(--main-color);
-    display: block;
+    flex-grow: 1; 
     height: 20px;
-    border: 1px solid rgba(0,0,0,0.3);
     border-radius: 10px;
-    overflow: hidden;
+    background: var(--main-color);
+    border: 1px solid rgba(0,0,0,0.3);
     transition: all 0.3s cubic-bezier(.25, .8,.25,1);
+    display: block;
+    overflow: hidden;
  }
  .skills .bar:hover{
     scale: 1.05;
  }
  .skills .bar span{
-    height: 20px;
+    height: 100%;
     float: left;
     background: linear-gradient(135deg, var(--bg-color)0%, var(--second-bg-color)100%);
+    display: block; 
  }
  .html{
     width: 90%;
@@ -394,7 +404,7 @@ span{
     animation: css 3s;
  }
  .javascript{
-    width: 30%;
+    width: 40%;
     animation: javascript 3s;
  }
  .python{
@@ -430,7 +440,7 @@ span{
         width: 0%;
     }
     100%{
-        width: 30%;
+        width: 40%;
     }
  }
  @keyframes python{
