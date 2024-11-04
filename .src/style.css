@@ -516,38 +516,47 @@ span{
 .projects{
     padding-top: 30px;
     background: var(--second-bg-color);
-}
-.projects .projects-item {
-    display: flex;
-    align-items: center;
-    margin-bottom: 20px;
-}
-.projects .project-text {
-    margin-bottom: 10px; /* Space between text and links */
-}
-.projects .project-text h2{
-    font-size: 3rem;    
-    transition: color 0.3s ease, transform 0.3s ease; 
-}
-.projects .project-text h2:hover{
-    color: var(--main-color);
-    transform: scale(1.05);
-}
-.projects .project-text p{
-    font-size: 1.5rem;    
-    padding-bottom: 1.5rem;
+    justify-content: space-evenly;
 }
 .projects .project-link{
     padding-bottom: 3rem;
 }
 .projects .project-link .btn{
-    padding: 1rem 2rem;
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    font-size: 1.5rem;
 }
-.projects .project-image {
-    padding: 20px; 
+.projects .btn-group {
+    display: flex;
+    gap: 10px;
+}
+.projects .project-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; /* Space between certificates */
+}
+.projects .project-details{
+    align-items: center;
+}
+.projects .project-text {
+    flex: 1; /* Take up available space */
+    padding: 20px; /* Add some padding */
+}
+.projects .project-text h3{
+    font-size: 3rem;    
+    padding-bottom: 2rem;
+    transition: color 0.3s ease, transform 0.3s ease; 
+}
+.projects .project-text h3:hover{
+    color: var(--main-color);
+    transform: scale(1.01);
+}
+.projects .project-text p{
+    font-size: 2rem;
+    text-align: justify;
 }
 .projects .project-image img {
-    max-width: 50rem; /* Make sure the image is responsive */
+    max-width: 100rem; /* Make sure the image is responsive */
     height: auto; /* Maintain aspect ratio */
     transition: transform 0.3s ease; 
 }
@@ -556,13 +565,6 @@ span{
 }
 .projects .left {
     flex-direction: row; /* Text on the left */
-}
-.project-details {
-    flex: 1;
-}
-.projects .btn-group {
-    display: flex;
-    gap: 10px;
 }
 /* Certificates */
 .heading{
