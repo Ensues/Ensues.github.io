@@ -201,6 +201,9 @@ span{
 }
 .btn:hover{
     transform:scale(1.05);
+    background-color: transparent;
+    color: var(--main-color);
+    border: 2px solid var(--main-color); 
 }
 .btn-group{
     display: flex;
@@ -514,6 +517,53 @@ span{
     padding-top: 30px;
     background: var(--second-bg-color);
 }
+.projects .projects-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.projects .project-text {
+    margin-bottom: 10px; /* Space between text and links */
+}
+.projects .project-text h2{
+    font-size: 3rem;    
+    transition: color 0.3s ease, transform 0.3s ease; 
+}
+.projects .project-text h2:hover{
+    color: var(--main-color);
+    transform: scale(1.05);
+}
+.projects .project-text p{
+    font-size: 1.5rem;    
+    padding-bottom: 1.5rem;
+}
+.projects .project-link{
+    padding-bottom: 3rem;
+}
+.projects .project-link .btn{
+    padding: 1rem 2rem;
+}
+.projects .project-image {
+    padding: 20px; 
+}
+.projects .project-image img {
+    max-width: 50rem; /* Make sure the image is responsive */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.3s ease; 
+}
+.projects .project-image img:hover{
+    transform: scale(1.05);
+}
+.projects .left {
+    flex-direction: row; /* Text on the left */
+}
+.project-details {
+    flex: 1;
+}
+.projects .btn-group {
+    display: flex;
+    gap: 10px;
+}
 /* Certificates */
 .heading{
     font-size: 8rem;
@@ -559,13 +609,8 @@ span{
 .certificates .certificate-image img:hover{
     transform: scale(1.05);
 }
-
-.left {
+.certificates .left {
     flex-direction: row; /* Text on the left */
-}
-
-.right {
-    flex-direction: row-reverse; /* Text on the right */
 }
 /* About Me */
 .heading{
