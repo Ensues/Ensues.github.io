@@ -524,6 +524,49 @@ span{
     padding-top: 30px;
     background: var(--bg-color);
 }
+.certificates .certificate-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px; /* Space between certificates */
+}
+
+.certificates .certificate-text {
+    flex: 1; /* Take up available space */
+    padding: 20px; /* Add some padding */
+}
+.certificates .certificate-text h3{
+    font-size: 3rem;    
+    transition: color 0.3s ease, transform 0.3s ease; 
+}
+.certificates .certificate-text h4{
+    font-size: 1.5rem;    
+    padding-bottom: 3rem; 
+    transition: color 0.3s ease, transform 0.3s ease; 
+}
+.certificates .certificate-text h3:hover{
+    color: var(--main-color);
+    transform: scale(1.05);
+}
+.certificates .certificate-text p{
+    font-size: 2rem;
+}
+
+.certificates .certificate-image img {
+    max-width: 50rem; /* Make sure the image is responsive */
+    height: auto; /* Maintain aspect ratio */
+    transition: transform 0.3s ease; 
+}
+.certificates .certificate-image img:hover{
+    transform: scale(1.05);
+}
+
+.left {
+    flex-direction: row; /* Text on the left */
+}
+
+.right {
+    flex-direction: row-reverse; /* Text on the right */
+}
 /* About Me */
 .heading{
     font-size: 8rem;
@@ -533,6 +576,15 @@ span{
 .about{
     padding-top: 30px;
     background: var(--second-bg-color);
+}
+
+.about .info{
+    font-size: 2rem;
+}
+
+.about .info h2{
+    padding-top: 2px;
+    padding-bottom: 2px;
 }
 /* contact me */
 .heading{
@@ -639,7 +691,6 @@ body.light-mode {
 
 /* Header Styles */
 .header.light-mode {
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
     background: rgba(255, 255, 255, 0.3);
     backdrop-filter: blur(10px);
 }
