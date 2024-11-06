@@ -39,6 +39,7 @@ document.getElementById('theme-toggle').addEventListener('click', function() {
     document.querySelector('.go-to-btn').classList.toggle('light-mode');
     document.querySelector('.bar').classList.toggle('light-mode');
     document.querySelector('.home').classList.toggle('light-mode');
+    document.querySelector('.social').classList.toggle('light-mode');
     document.querySelector('.social-icons').classList.toggle('light-mode');
     document.querySelector('.home-content').classList.toggle('light-mode'); 
     document.querySelector('.education').classList.toggle('light-mode');

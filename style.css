@@ -763,7 +763,7 @@ body.light-mode {
     color: var(--light-text-color); /* Light mode text color */
     border: 2px solid var(--light-text-color); /* Border color in light mode */
 }
-.home.light-mode .btn{
+.light-mode .home .btn{
     border: 2px solid var(--light-text-color);
 }
 .contact.light-mode .btn{
@@ -771,15 +771,25 @@ body.light-mode {
 }
 
 /* Social Icons */
-.social-icons a.light-mode {
+.light-mode .social-icons a{
     background-color: var(--light-bg-color); /* Set the background color in light mode */
     color: var(--light-text-color); /* Set the text color in light mode */
-    border: 2px solid var(--light-border-color); /* Optional: Set border color */
+    border: 2px solid var(--bg-color); /* Optional: Set border color */
+}
+.light-mode .footer .social a{
+    background-color: var(--light-bg-color); /* Set the background color in light mode */
+    color: var(--light-text-color); /* Set the text color in light mode */
+    border: 2px solid var(--bg-color); /* Optional: Set border color */
 }
 /* Hover State for Social Icons in Light Mode */
-.social-icons.light-mode a:hover {
-    background-color: var(--light-main-color); /* Change background color on hover */
-    color: var(--hover-text-color, #ffffff); /* Change text color on hover */
+.light-mode .social-icons a:hover {
+    background-color: var(--light-text-color); /* Change background color on hover */
+    color: var(--light-bg-color); /* Change text color on hover */
+    border: 2px solid var(--light-text-color);
+}
+.light-mode .footer .social a:hover {
+    background-color: var(--light-text-color); /* Change background color on hover */
+    color: var(--light-bg-color); /* Change text color on hover */
     border: 2px solid var(--light-text-color);
 }
 
