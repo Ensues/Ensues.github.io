@@ -568,7 +568,7 @@ span{
     margin-right: 0.5rem; 
 }
 .projects .project-image img {
-    max-width: 100rem; /* Make sure the image is responsive */
+    max-width: 100%; /* Make sure the image is responsive */
     height: auto; /* Maintain aspect ratio */
     transition: transform 0.3s ease; 
 }
