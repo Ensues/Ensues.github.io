@@ -18,7 +18,7 @@
     
     /* Light Mode Colors */
     --light-bg-color: #f0f0f0;
-    --light-second-bg-color: #d1d8eb;
+    --light-second-bg-color: #dededf;
     --light-text-color: #333; 
     --light-main-color: #689eb8; 
 }
@@ -388,7 +388,7 @@ span{
     height: 20px;
     border-radius: 10px;
     background: var(--main-color);
-    border: 1px solid rgba(0,0,0,0.3);
+    border: 1px solid var(--main-color);
     transition: all 0.3s cubic-bezier(.25, .8,.25,1);
     display: block;
     overflow: hidden;
@@ -627,25 +627,6 @@ span{
 .certificates .left {
     flex-direction: row; /* Text on the left */
 }
-/* About Me */
-.heading{
-    font-size: 8rem;
-    text-align: center;
-    margin: 5rem 0;
-}
-.about{
-    padding-top: 30px;
-    background: var(--second-bg-color);
-}
-
-.about .info{
-    font-size: 2rem;
-}
-
-.about .info h2{
-    padding-top: 2px;
-    padding-bottom: 2px;
-}
 /* contact me */
 .heading{
     font-size: 8rem;
@@ -653,7 +634,7 @@ span{
     margin: 5rem 0;
 }
 .contact{
-    background-color: var(--bg-color);
+    background-color: var(--second-bg-color);
     padding-top: 30px;
 }
 .contact form{
@@ -676,7 +657,7 @@ span{
     font-size: 1.8rem;
     text-align: justify;
     color: var(--text-color);
-    background: var(--second-bg-color);
+    background: var(--bg-color);
     border-radius: 2rem;
     border: 2px solid var(--main-color);
     margin:1.5rem 0;
@@ -830,6 +811,10 @@ body.light-mode {
     border: 2px solid var(--light-text-color);
 }
 
+.light-mode .skills .bar{
+    border: 1px solid var(--bg-color);
+}
+
 /* Projects */
 .projects.light-mode{
     background-color: var(--light-second-bg-color);
@@ -840,18 +825,13 @@ body.light-mode {
     background-color: var(--light-bg-color);
 }
 
-/* About */
-.about.light-mode{
-    background-color: var(--light-second-bg-color);
-}
-
 /* Contact Me */
 .contact.light-mode{
-    background-color: var(--light-bg-color);
+    background-color: var(--light-second-bg-color);
 }
 .light-mode .contact form .input-box input,
 .light-mode .contact form textarea {
-    background-color: var(--light-second-bg-color); /* Set background color to light-bg-color */
+    background-color: var(--light-bg-color); /* Set background color to light-bg-color */
     color: var(--bg-color); /* Set text color to black for good contrast */
     border: 2px solid var(--light-text-color);
 }

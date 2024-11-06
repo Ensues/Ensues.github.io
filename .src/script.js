@@ -37,6 +37,7 @@ document.getElementById('theme-toggle').addEventListener('click', function() {
     document.querySelector('.btn').classList.toggle('light-mode'); 
     document.querySelector('.btn-group').classList.toggle('light-mode');
     document.querySelector('.go-to-btn').classList.toggle('light-mode');
+    document.querySelector('.bar').classList.toggle('light-mode');
     document.querySelector('.home').classList.toggle('light-mode');
     document.querySelector('.social-icons').classList.toggle('light-mode');
     document.querySelector('.home-content').classList.toggle('light-mode'); 
@@ -44,7 +45,6 @@ document.getElementById('theme-toggle').addEventListener('click', function() {
     document.querySelector('.skills').classList.toggle('light-mode');
     document.querySelector('.projects').classList.toggle('light-mode');
     document.querySelector('.certificates').classList.toggle('light-mode');
-    document.querySelector('.about').classList.toggle('light-mode');
     document.querySelector('.contact').classList.toggle('light-mode');
     // document.querySelector('.').classList.toggle('light-mode'); <-- Add this line
 
