@@ -779,14 +779,22 @@ body.light-mode {
 
 /* Buttons */
 .btn.light-mode {
-    background-color: var(--light-main-color); /* Light mode background color */
-    color: var(--light-text-color); /* Light mode text color */
-    border: 2px solid var(--light-text-color); /* Border color in light mode */
-}
-.light-mode .home .btn{
+    background-color: var(--bg-color); 
+    color: var(--light-bg-color); 
     border: 2px solid var(--light-text-color);
 }
-.contact.light-mode .btn{
+.btn.light-mode:hover {
+    background-color: var(--light-bg-color);
+    color: var(--bg-color);
+}
+.light-mode .btn-group a:nth-of-type(2){
+    background-color: var(--light-bg-color);
+    color: var(--bg-color);
+    border: 2px solid var(--bg-color);
+}
+.light-mode .btn-group a:nth-of-type(2):hover{
+    background-color: var(--bg-color); 
+    color: var(--light-bg-color); 
     border: 2px solid var(--light-text-color);
 }
 .light-mode .color-btn{
@@ -796,6 +804,29 @@ body.light-mode {
     background-color: var(--light-bg-color);
     color: var(--light-text-color);
     border: 2px solid var(--light-text-color); 
+}
+.light-mode .projects .project-link .btn{
+    background-color: var(--bg-color); 
+    color: var(--light-bg-color); 
+    border: 2px solid var(--light-text-color);
+}
+.light-mode .projects .project-link .btn:hover{
+    background-color: var(--light-bg-color);
+    color: var(--bg-color);
+}
+.light-mode .projects .project-link a:nth-of-type(2){
+    background-color: var(--light-bg-color);
+    color: var(--bg-color);
+    border: 2px solid var(--bg-color);
+}
+.light-mode .contact .btn{
+    background-color: var(--bg-color); 
+    color: var(--light-bg-color); 
+    border: 2px solid var(--light-text-color);
+}
+.light-mode .contact .btn:hover {
+    background-color: var(--light-bg-color);
+    color: var(--bg-color);
 }
 /* Social Icons */
 .light-mode .social-icons a{
@@ -830,6 +861,12 @@ body.light-mode {
 }
 .education.light-mode .timeline-date{
     color: var(--light-text-color);
+}
+.education.light-mode .timeline-items::before{
+    background-color: var(--bg-color);
+}
+.education.light-mode .timeline-dot{
+    background-color: var(--bg-color);
 }
 .education.light-mode .timeline-content h3{
     color: var(--light-text-color);
