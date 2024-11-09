@@ -37,6 +37,7 @@ document.getElementById('theme-toggle').addEventListener('click', function() {
     document.querySelector('.btn').classList.toggle('light-mode'); 
     document.querySelector('.btn-group').classList.toggle('light-mode');
     document.querySelector('.go-to-btn').classList.toggle('light-mode');
+    document.querySelector('.color-btn').classList.toggle('light-mode');
     document.querySelector('.bar').classList.toggle('light-mode');
     document.querySelector('.home').classList.toggle('light-mode');
     document.querySelector('.social').classList.toggle('light-mode');
@@ -48,11 +49,4 @@ document.getElementById('theme-toggle').addEventListener('click', function() {
     document.querySelector('.certificates').classList.toggle('light-mode');
     document.querySelector('.contact').classList.toggle('light-mode');
     // document.querySelector('.').classList.toggle('light-mode'); <-- Add this line
-
-    // Change button text based on the current mode
-    if (document.body.classList.contains('light-mode')) {
-        this.textContent = 'Dark Mode';
-    } else {
-        this.textContent = 'Light Mode';
-    }
 });
