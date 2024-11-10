@@ -33,7 +33,7 @@ body{
 .heading{
     font-size: 8rem;
     text-align: center;
-    margin: 5rem 0;
+    margin: 0;
     transition: 0.3s ease-in;
 }
 .heading:hover{
@@ -83,7 +83,7 @@ c{
     top:0;
     left: 0;
     width: 100%;
-    padding: 1rem 8% 1rem;
+    padding: 0rem 8% 0rem;
     background: rgba(0,0,0,0.3);
     backdrop-filter: blur(10px);
     display: flex;
@@ -138,9 +138,8 @@ section{
 }
 .color-btn:hover{
     transform:scale(1.05);
-    background-color: var(--bg-color);
-    color: var(--main-color);
-    border: 2px solid var(--main-color); 
+    background-color: var(--light-bg-color);
+    color: var(--bg-color);
 }
 /* Go to top button */
 .go-to-btn{
@@ -799,9 +798,8 @@ body.light-mode {
     color: var(--light-text-color);
 }
 .light-mode .color-btn:hover{
-    background-color: var(--light-bg-color);
-    color: var(--light-text-color);
-    border: 2px solid var(--light-text-color); 
+    background-color: var(--bg-color);
+    color: var(--light-bg-color);
 }
 .light-mode .projects .project-link .btn{
     background-color: var(--bg-color); 
