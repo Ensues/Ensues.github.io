@@ -33,7 +33,7 @@ body{
 .heading{
     font-size: 8rem;
     text-align: center;
-    margin: 0;
+    margin-top: 2rem;
     transition: 0.3s ease-in;
 }
 .heading:hover{
@@ -513,11 +513,6 @@ span{
 }
 
 /* Certificates */
-.heading{
-    font-size: 8rem;
-    text-align: center;
-    margin: 5rem 0;
-}
 .certificates{
     padding-top: 30px;
     background: var(--second-bg-color);
