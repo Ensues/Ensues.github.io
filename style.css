@@ -977,7 +977,10 @@ body.light-mode {
     }
 }
 @media(max-width:991px){
-    img{
+    .project img{
+        display: none;
+    }
+    .certificates img{
         display: none;
     }
     header{
