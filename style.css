@@ -304,10 +304,46 @@ span{
     width: 250px;
 }
 
+/* Experience */
+
+.experience{
+    background: var(--bg-color);
+}
+.experience .specific-item{
+    width: 95%;
+    margin: 25px auto;
+    color: var(--text-color);
+    padding: 25px;
+    background: var(--bg-color);
+    border-radius: 1%;
+    border: 2px solid var(--main-color);
+}
+.experience .specific-item h2{
+    font-size: 3rem;
+}
+.experience .specific-item h2:hover{
+    color: var(--main-color);
+}
+.experience .specific-item h3{
+    font-size: 2.5rem;
+    margin: 0;
+}
+.experience .specific-item p{
+    font-size: 2rem;
+}
+.experience .specific-item ul{
+    margin-left: 3rem;
+}
+.experience .specific-item li{
+    font-size: 2rem;
+}
+
+
+
 /* Education */
 .education{
     padding-top: 30px;
-    background: var(--bg-color);
+    background: var(--second-bg-color);
 }
 .education h2{
     margin-bottom: 5rem;
@@ -389,21 +425,9 @@ span{
     text-align: justify;
 }
 
-/* Scroll Bar */
-::-webkit-scrollbar{
-    width: 15px;
-}
-::-webkit-scrollbar-thumb{
-    background-color: var(--main-color);
-}
-::-webkit-scrollbar-track{
-    background-color: var(--bg-color);
-    width: 50px;
-}
-
 /* Skills */
 .skills{
-    background: var(--second-bg-color);
+    background: var(--bg-color);
     padding-top: 25px;
 }
 
@@ -449,7 +473,7 @@ span{
 /* Projects */
 .projects{
     padding-top: 25px;
-    background: var(--bg-color);
+    background: var(--second-bg-color);
     justify-content: space-evenly;
 }
 .projects .project-link{
@@ -515,7 +539,7 @@ span{
 /* Certificates */
 .certificates{
     padding-top: 30px;
-    background: var(--second-bg-color);
+    background: var(--bg-color);
 }
 .certificates .certificate-item {
     display: flex;
@@ -538,7 +562,6 @@ span{
 }
 .certificates .certificate-text h3:hover{
     color: var(--main-color);
-    transform: scale(1.05);
 }
 .certificates .certificate-text p{
     font-size: 2rem;
@@ -851,12 +874,22 @@ body.light-mode {
     border: 3px solid var(--bg-color);
 }
 
-/* Education */
-.light-mode .education{
+/* Experience */
+.light-mode .experience{
     background-color: var(--light-bg-color);
 }
-.light-mode .education .timeline-content{
+.light-mode .experience .specific-item{
+    background-color: var(--light-bg-color);
+    color: var(--light-text-color); 
+    border: 2px solid var(--light-text-color);
+}
+
+/* Education */
+.light-mode .education{
     background-color: var(--light-second-bg-color);
+}
+.light-mode .education .timeline-content{
+    background-color: var(--light-bg-color);
     border: 2px solid var(--second-bg-color);
 }
 .light-mode .education .timeline-date{
@@ -880,33 +913,22 @@ body.light-mode {
 
 /* Skills */
 .light-mode .skills{
-    background-color: var(--light-second-bg-color);
+    background-color: var(--light-bg-color);
 }
 .light-mode .skills .specifics{
-    background-color: var(--light-bg-color);
+    background-color: var(--light-second-bg-color);
     color: var(--light-text-color); 
     border: 2px solid var(--light-text-color);
 }
 
 /* Projects */
 .light-mode .projects{
-    background-color: var(--light-bg-color);
+    background-color: var(--light-second-bg-color);
 }
 
 /* Certificates */
 .light-mode .certificates{
-    background-color: var(--light-second-bg-color);
-}
-
-/* Contact Me */
-.light-mode .contact{
     background-color: var(--light-bg-color);
-}
-.light-mode .contact form .input-box input,
-.light-mode .contact form textarea {
-    background-color: var(--light-bg-color); 
-    color: var(--bg-color); 
-    border: 2px solid var(--light-text-color);
 }
 
 /* Footer Styles */
@@ -955,6 +977,9 @@ body.light-mode {
     }
 }
 @media(max-width:991px){
+    img{
+        display: none;
+    }
     header{
         padding: 2rem 3%;
     }

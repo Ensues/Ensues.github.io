@@ -48,5 +48,6 @@ document.getElementById('theme-toggle').addEventListener('click', function() {
     document.querySelector('.projects').classList.toggle('light-mode');
     document.querySelector('.certificates').classList.toggle('light-mode');
     document.querySelector('.contact').classList.toggle('light-mode');
+    document.querySelector('.experience').classList.toggle('light-mode');
     // document.querySelector('.').classList.toggle('light-mode'); <-- Add this line
 });
