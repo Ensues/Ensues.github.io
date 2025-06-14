@@ -127,7 +127,7 @@ up{
     height: 100vh;
     width: 250px;
     z-index: 999;
-    background-color: rgba(0,0,0,0.3);
+    background: rgba(0,0,0,0.3);
     backdrop-filter: blur(10px);
     box-shadow: -10px 0 10px rgba(0,0,0,0.1);
     display: none;
@@ -809,6 +809,11 @@ body.light-mode {
 
 /* Navbar Styles */
 .navbar.light-mode {
+    background: transparent; 
+    backdrop-filter: blur(10px);
+}
+
+.light-mode .sidebar {
     background: transparent; 
     backdrop-filter: blur(10px);
 }
