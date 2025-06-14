@@ -445,13 +445,13 @@ span{
     transform: scale(1.05);
 }
 .timeline-content h3{
-    font-size: 20px;
+     font-size: 2.5rem;
     color: var(--text-color);
     margin: 0 0 10px;
     font-weight: 700;
 }
 .timeline-content h4{
-    font-size: 16px;
+    font-size: 2rem;
     color: var(--text-color);
     margin: 0 0 10px;
     padding: 10px 0px;
@@ -459,10 +459,10 @@ span{
 }
 .timeline-content p{
     color: var(--text-color);
-    font-size: 16px;
+    font-size: 2rem;
     font-weight: 300;
     line-height: 22px;
-    text-align: justify;
+    text-align: left;
 }
 
 /* Skills */
@@ -553,7 +553,6 @@ span{
 }
 .projects .project-text p{
     font-size: 2rem;
-    text-align: justify;
     margin-bottom: 1rem;
 }
 .projects .project-text h4{
@@ -605,7 +604,6 @@ span{
 }
 .certificates .certificate-text p{
     font-size: 2rem;
-    text-align: justify;
 }
 
 .certificates .certificate-image img {
