@@ -270,7 +270,7 @@ span{
     background: var(--second-bg-color);
 }
 .about h2{
-    margin-bottom: 5rem;
+    margin-bottom: 0rem;
 }
 
 .about .container {
