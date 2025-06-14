@@ -25,6 +25,16 @@ menuIcon.onclick = () => {
     navbar.classList.toggle('active');
 }
 
+function showSidebar(){
+    const sidebar = document.querySelector('.sidebar')
+    sidebar.style.display = 'block'
+}
+
+function hideSidebar(){
+    const sidebar = document.querySelector('.sidebar')
+    sidebar.style.display = 'none'
+}
+
 // Light mode
 
 document.getElementById('theme-toggle').addEventListener('click', function() {

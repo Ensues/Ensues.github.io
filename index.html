@@ -16,14 +16,26 @@
             <a href="#home" class="logo">Eric <span>Quiambao</span></a>
             <i class="bx bx-menu" id="menu-icon"></i>
             <nav class="navbar">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#experience">Experience</a>
-                <a href="#education">Education</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#certificates">Certificates</a>
+                <a class="hideOnMobile" href="#home">Home</a>
+                <a class="hideOnMobile" href="#about">About</a>
+                <a class="hideOnMobile" href="#experience">Experience</a>
+                <a class="hideOnMobile" href="#education">Education</a>
+                <a class="hideOnMobile" href="#skills">Skills</a>
+                <a class="hideOnMobile" href="#projects">Projects</a>
+                <a class="hideOnMobile" href="#certificates">Certificates</a>
                 <button id="theme-toggle" class="color-btn"><i class="ti ti-sun-moon"></i></button>
+                <button id="theme-toggle" class="color-btn" onclick=showSidebar()><i class="ti ti-menu menu-button"></i></button>
+                
+                <ul class="sidebar">
+                    <li> <button id="theme-toggle" class="color-btn" onclick=hideSidebar()><i class="ti ti-x"></i></button> </li>
+                    <li> <a href="#home">Home</a> </li>
+                    <li> <a href="#about">About</a> </li>
+                    <li> <a href="#experience">Experience</a> </li>
+                    <li> <a href="#education">Education</a> </li>
+                    <li> <a href="#skills">Skills</a></li>
+                    <li> <a href="#projects">Projects</a> </li>
+                    <li> <a href="#certificates">Certificates</a> </li>
+                </ul>
             </nav>
         </header>
 
@@ -61,11 +73,14 @@
                   <p><b>
                     <center>Aspiring Data Scientist & Data Analyst | Math & Finance Enthusiast</center>
                     <br><br>
-                    I am a soon-to-be <c>Bachelor of Science in Computer Science</c> graduate from <c>Tarlac State University</c>, where I honed my skills in programming, algorithms, and data structures through rigorous coursework and hands-on projects. Right now I’m looking for internships and entry-level positions in either <c>Data Analysis or Data Science</c>, to apply my expertise in <c>Python, Pandas, and Scikit-learn</c> to deliver impactful insights.
+                    Soon-to-be <c>Bachelor of Science in Computer Science</c> graduate from <c>Tarlac State University</c>
+                    with hands-on experience in Python, Pandas, and scikit-learn.
                     <br><br>
-                    I became passionate about data because there’s something deeply rewarding about taking raw numbers and transforming them into a coherent story. I also believe this will be the future of tech jobs, therefore, I am preparing for it one step at a time. Due to my <c>senior high strand focusing about Accounting, Business, and Management</c> I also have a deep interest and appreciation of business and financial related matters.
+                    Actively seeking internships or entry-level roles in Data Analysis or Data Science
+                    to leverage data-driven methodologies and deliver actionable insights.
                     <br><br>
-                    When I’m not working with data, you can find me training in calisthenics, rucking, sprinting, weight lifting, gaming, or riding my motorcycle across Luzon. I also play finger style guitar, particularly classical, romance, Disney, and Ghibli. I am also a big fan of both non-fiction and philosophy books.
+                    Possess a strong foundation in programming, algorithms, and data structures, complemented 
+                    by a business-oriented mindset from an Accounting, Business, and Management background.
                   </p></b>
                   <!--
                   <a href="#blank" class="btn">Read More</a>
@@ -345,7 +360,7 @@
                         <br><br>
                         The course emphasizes a forward-thinking perspective on emerging AI trends, risk management, and 
                         change management processes necessary for successful adoption. 
-                        Graduates gain the ability to assess AI maturity, contribute to project scoping, and 
+                        Letting me gain the ability to assess AI maturity, contribute to project scoping, and 
                         support cross-functional teams in implementing robust, responsible AI solutions.
                     </p>
                 </div>
@@ -359,16 +374,16 @@
                     <h3> Introduction to Data Science </h3>
                     <h4> Cisco </h4>
                     <p>
-                        Cisco’s Introduction to Data Science course outlines the data science workflow, 
+                        Cisco’s course outlined the data science workflow, 
                         from problem formulation through deployment of analytical solutions. 
-                        Learners explore statistical foundations, data wrangling techniques, 
+                        I explored statistical foundations, data wrangling techniques, 
                         and basic machine learning models, with a focus on interpreting results and 
                         translating findings into business recommendations. 
                         <br><br>
-                        The program highlights industry-relevant scenarios, such as network performance optimization or 
+                        The program highlighted industry-relevant scenarios, such as network performance optimization or 
                         customer behavior analysis, demonstrating how data science drives strategic decision making.
                         By combining theoretical insights with hands-on exercises, 
-                        it readies participants to engage in data-driven projects within enterprise environments.
+                        it prepared me to engage in data-driven projects within enterprise environments.
                     </p>
                 </div>
                 <div class="certificate-image">
@@ -381,7 +396,7 @@
                     <h3> Business Analytics Concepts and Frameworks </h3>
                     <h4> University Of The Philippines Open University </h4>
                     <p>
-                        UPOU’s course provides a structured approach to leveraging data for strategic business outcomes.
+                        UPOU’s course provided a structured approach to leveraging data for strategic business outcomes.
                         It covered the analytics lifecycle, from identifying business objectives and stakeholder needs to 
                         designing analytic frameworks that drive performance measurement and continuous improvement. 
                         <br><br>
