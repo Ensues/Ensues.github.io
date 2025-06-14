@@ -76,6 +76,7 @@ body{
 }
 c{
     color: var(--main-color);
+    font-weight: 600;
 }
 up{
     font-size: 3rem;
@@ -367,8 +368,9 @@ span{
     font-size: 2.5rem;
     margin: 0;
 }
-.experience .specific-item p{
+.experience .specific-item h4{
     font-size: 2rem;
+    font-style: italic;
 }
 .experience .specific-item ul{
     margin-left: 3rem;
@@ -453,9 +455,10 @@ span{
 }
 .timeline-content h4{
     font-size: 2rem;
+    font-style: italic;
     color: var(--text-color);
     margin: 0 0 10px;
-    padding: 10px 0px;
+    padding-bottom: 10px;
     font-weight: 700;
     text-align: left;
 }
@@ -597,15 +600,19 @@ span{
     transition: color 0.3s ease, transform 0.3s ease; 
 }
 .certificates .certificate-text h4{
-    font-size: 1.5rem;    
-    padding-bottom: 2rem; 
-    transition: color 0.3s ease, transform 0.3s ease; 
+    font-size: 2.5rem;   
+    font-style: italic; 
+    padding-bottom: 2rem;
+    transition: color 0.3s ease, transform 0.3s ease;
 }
 .certificates .certificate-text h3:hover{
     color: var(--main-color);
 }
 .certificates .certificate-text p{
     font-size: 2rem;
+}
+.certificates .cert-btn{
+    display: none;
 }
 
 .certificates .certificate-image img {
@@ -1033,6 +1040,9 @@ body.light-mode {
     }
     .certificates img{
         display: none;
+    }
+    .certificates .cert-btn{
+    display:inline;
     }
     header{
         padding: 2rem 3%;
