@@ -347,7 +347,7 @@ span{
 /* Experience */
 
 .experience{
-    background: var(--bg-color);
+    background: var(--second-bg-color);
 }
 .experience .specific-item{
     width: 95%;
@@ -385,7 +385,7 @@ span{
 /* Education */
 .education{
     padding-top: 30px;
-    background: var(--second-bg-color);
+    background: var(--bg-color);
 }
 .education h2{
     margin-bottom: 5rem;
@@ -436,7 +436,7 @@ span{
     margin: 6px 0 15px;
 }
 .timeline-content{
-    background-color: var(--bg-color);
+    background-color: var(--second-bg-color);
     border: 3px solid var(--main-color);
     padding: 30px 50px;
     border-radius: 4rem;
@@ -472,7 +472,7 @@ span{
 
 /* Skills */
 .skills{
-    background: var(--bg-color);
+    background: var(--second-bg-color);
     padding-top: 25px;
 }
 
@@ -518,7 +518,7 @@ span{
 /* Projects */
 .projects{
     padding-top: 25px;
-    background: var(--second-bg-color);
+    background: var(--bg-color);
     justify-content: space-evenly;
 }
 .projects .project-link{
@@ -583,7 +583,7 @@ span{
 /* Certificates */
 .certificates{
     padding-top: 30px;
-    background: var(--bg-color);
+    background: var(--second-bg-color);
 }
 .certificates .certificate-item {
     display: flex;
@@ -748,7 +748,7 @@ span{
     bottom: 0;
     width: 100%;
     padding: 20px 0;
-    background-color: var(--second-bg-color);
+    background-color: var(--bg-color);
 }
 .footer .social{
     text-align: center;
@@ -928,7 +928,7 @@ body.light-mode {
 
 /* Experience */
 .light-mode .experience{
-    background-color: var(--light-bg-color);
+    background-color: var(--light-second-bg-color);
 }
 .light-mode .experience .specific-item{
     background-color: var(--light-bg-color);
@@ -938,10 +938,10 @@ body.light-mode {
 
 /* Education */
 .light-mode .education{
-    background-color: var(--light-second-bg-color);
+    background-color: var(--light-bg-color);
 }
 .light-mode .education .timeline-content{
-    background-color: var(--light-bg-color);
+    background-color: var(--light-second-bg-color);
     border: 2px solid var(--second-bg-color);
 }
 .light-mode .education .timeline-date{
@@ -965,27 +965,27 @@ body.light-mode {
 
 /* Skills */
 .light-mode .skills{
-    background-color: var(--light-bg-color);
+    background-color: var(--light-second-bg-color);
 }
 .light-mode .skills .specifics{
-    background-color: var(--light-second-bg-color);
+    background-color: var(--light-bg-color);
     color: var(--light-text-color); 
     border: 2px solid var(--light-text-color);
 }
 
 /* Projects */
 .light-mode .projects{
-    background-color: var(--light-second-bg-color);
+    background-color: var(--light-bg-color);
 }
 
 /* Certificates */
 .light-mode .certificates{
-    background-color: var(--light-bg-color);
+    background-color: var(--light-second-bg-color);
 }
 
 /* Footer Styles */
 .footer.light-mode {
-    background-color: var(--light-second-bg-color);
+    background-color: var(--light-bg-color);
     color: var(--light-text-color);
 }
 .footer.light-mode ul li a {
