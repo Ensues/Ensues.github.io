@@ -1,63 +1,65 @@
-// menu icon
+// Menu icon and navigation
+const menuIcon = document.querySelector('#menu-icon');
+const navbar = document.querySelector('.navbar');
+const sections = document.querySelectorAll('section');
+const navLinks = document.querySelectorAll('header nav a');
 
-let menuIcon = document.querySelector('#menu-icon');
-let navbar = document.querySelector('.navbar');
-let sections = document. querySelectorAll('.section');
-let naviinks = document. querySelectorAll('header nava');
-
-window.onscroll = () => {
-    sections. forEach(sec => {
-        let top = window.scrolly;
-        let offset = sec.offsetTop - 150;
-        let height = sec.offsetHeight;
-        let id = sec.getAttribute('id');
-        
-        if(top >= offset && top < offset + height){
-            navLinks.forEach(links => {
-                links.classList.remove('active');
-                document.querySelector('header nav a [href*=' + id + ' ]').classList.add('active')
-            })
+// Scroll spy: highlight nav links based on section in view
+window.addEventListener('scroll', () => {
+    const top = window.scrollY;
+    sections.forEach(sec => {
+        const offset = sec.offsetTop - 150;
+        const height = sec.offsetHeight;
+        const id = sec.getAttribute('id');
+        if (top >= offset && top < offset + height) {
+            navLinks.forEach(link => link.classList.remove('active'));
+            const selector = `header nav a[href="#${id}"]`;
+            const el = document.querySelector(selector);
+            if (el) el.classList.add('active');
         }
-    })
-}
-menuIcon.onclick = () => {
+    });
+});
+
+menuIcon && (menuIcon.onclick = () => {
     menuIcon.classList.toggle('bx-x');
     navbar.classList.toggle('active');
-}
+});
 
 function showSidebar(){
-    const sidebar = document.querySelector('.sidebar')
-    sidebar.style.display = 'block'
+    const sidebar = document.querySelector('.sidebar');
+    if (sidebar) sidebar.style.display = 'block';
 }
 
 function hideSidebar(){
-    const sidebar = document.querySelector('.sidebar')
-    sidebar.style.display = 'none'
+    const sidebar = document.querySelector('.sidebar');
+    if (sidebar) sidebar.style.display = 'none';
 }
 
-// Light mode
+// Wire sidebar buttons (in case inline onclick is removed later)
+const sidebarOpen = document.getElementById('sidebar-open');
+const sidebarClose = document.getElementById('sidebar-close');
+sidebarOpen && sidebarOpen.addEventListener('click', showSidebar);
+sidebarClose && sidebarClose.addEventListener('click', hideSidebar);
 
-document.getElementById('theme-toggle').addEventListener('click', function() {
+// Theme toggle with persistence
+const themeToggle = document.getElementById('theme-toggle');
+function applyThemeFromStorage() {
+    const theme = localStorage.getItem('theme');
+    if (theme === 'light') document.body.classList.add('light-mode');
+    else document.body.classList.remove('light-mode');
+}
+applyThemeFromStorage();
+themeToggle && themeToggle.addEventListener('click', () => {
     document.body.classList.toggle('light-mode');
-    document.querySelector('.header').classList.toggle('light-mode');
-    document.querySelector('.navbar').classList.toggle('light-mode');
-    document.querySelector('.footer').classList.toggle('light-mode');
-    document.querySelector('.logo').classList.toggle('light-mode'); 
-    document.querySelector('span').classList.toggle('light-mode');
-    document.querySelector('.btn').classList.toggle('light-mode'); 
-    document.querySelector('.btn-group').classList.toggle('light-mode');
-    document.querySelector('.go-to-btn').classList.toggle('light-mode');
-    document.querySelector('.color-btn').classList.toggle('light-mode');
-    document.querySelector('.bar').classList.toggle('light-mode');
-    document.querySelector('.home').classList.toggle('light-mode');
-    document.querySelector('.social').classList.toggle('light-mode');
-    document.querySelector('.social-icons').classList.toggle('light-mode');
-    document.querySelector('.home-content').classList.toggle('light-mode'); 
-    document.querySelector('.education').classList.toggle('light-mode');
-    document.querySelector('.skills').classList.toggle('light-mode');
-    document.querySelector('.projects').classList.toggle('light-mode');
-    document.querySelector('.certificates').classList.toggle('light-mode');
-    document.querySelector('.contact').classList.toggle('light-mode');
-    document.querySelector('.experience').classList.toggle('light-mode');
-    // document.querySelector('.').classList.toggle('light-mode'); <-- Add this line
+    localStorage.setItem('theme', document.body.classList.contains('light-mode') ? 'light' : 'dark');
 });
+
+// Initialize typed.js if available
+if (typeof Typed !== 'undefined') {
+    new Typed('.auto-type1', {
+        strings: ['DEVELOPER', 'DATA SCIENTIST', 'DATA ANALYST'],
+        typeSpeed: 150,
+        backSpeed: 150,
+        loop: true
+    });
+}
