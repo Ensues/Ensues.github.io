@@ -545,15 +545,15 @@ span{
     padding: 0.4rem 0 0.6rem 0;
 }
 .skill-icon{
-    height: 52px;
+    height: 32px;
     width: auto;
     display: inline-block;
-    padding: 0.35rem 0.85rem;
-    border-radius: 6px;
+    padding: 0.4rem 0.6rem;
+    border-radius: 4px;
     transition: transform 0.18s ease, box-shadow 0.18s ease;
 }
 .skill-icon:hover{
-    transform: translateY(-4px) scale(1.02);
+    transform: translateY(-4px) scale(1.08);
     box-shadow: 0 6px 18px rgba(0,0,0,0.35);
 }
 

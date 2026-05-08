@@ -58,8 +58,8 @@ themeToggle && themeToggle.addEventListener('click', () => {
 if (typeof Typed !== 'undefined') {
     new Typed('.auto-type1', {
         strings: ['DEVELOPER', 'DATA SCIENTIST', 'DATA ANALYST'],
-        typeSpeed: 150,
-        backSpeed: 150,
+        typeSpeed: 80,
+        backSpeed: 50,
         loop: true
     });
 }
