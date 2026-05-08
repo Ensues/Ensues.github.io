@@ -1,0 +1,64 @@
+/* Design tokens - variables.css */
+:root{
+  /* Color system - 60/30/10 */
+  --color-bg: #080808; /* 60% */
+  --color-surface: #131313; /* 30% */
+  --color-accent: #689eb8; /* 10% primary accent */
+  --color-accent-2: #FF7A59; /* secondary accent for CTAs or highlights */
+
+  /* Neutral text */
+  --text-primary: #FFFFFF;
+  --text-secondary: #D1D5DB;
+  --muted: #9CA3AF;
+
+  /* Semantic */
+  --success: #28A745;
+  --danger: #E11D48;
+
+  /* Spacing scale (8px base) */
+  --space-0: 0px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 16px;
+  --space-4: 24px;
+  --space-5: 32px;
+  --space-6: 48px;
+  --space-7: 64px;
+
+  /* Border radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 20px;
+
+  /* Elevation */
+  --shadow-sm: 0 4px 10px rgba(0,0,0,0.35);
+
+  /* Breakpoints */
+  --bp-xs: 520px;
+  --bp-sm: 900px;
+  --bp-md: 1200px;
+
+  /* Layout */
+  --container-max: 1200px;
+}
+
+/* Utility classes */
+.u-container{ max-width: var(--container-max); margin-left:auto; margin-right:auto; padding-left:var(--space-3); padding-right:var(--space-3); }
+.u-center{ text-align:center; }
+.u-hidden{ display:none !important; }
+.u-inline-flex{ display:inline-flex; align-items:center; }
+.sr-only{ position:absolute; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); border:0; }
+
+/* Button tokens */
+.btn-primary{ background:var(--color-accent); color:var(--text-primary); border-radius:var(--radius-md); padding:0.5rem 1rem; border:2px solid transparent; }
+.btn-ghost{ background:transparent; color:var(--text-primary); border-radius:var(--radius-md); padding:0.4rem 0.85rem; border:2px solid rgba(255,255,255,0.06); }
+
+/* Small helper spacing - margin */
+.mt-1{ margin-top:var(--space-1);} .mt-2{ margin-top:var(--space-2);} .mt-3{ margin-top:var(--space-3);} .mt-4{ margin-top:var(--space-4);} .mb-2{ margin-bottom:var(--space-2);} .mb-3{ margin-bottom:var(--space-3);} .mb-4{ margin-bottom:var(--space-4);} 
+
+/* Flex utilities */
+.row{ display:flex; gap:var(--space-3); }
+.col{ display:flex; flex-direction:column; gap:var(--space-3); }
+
+/* Accessibility focus */
+:focus{ outline: 3px solid rgba(104,158,184,0.25); outline-offset: 3px; }
