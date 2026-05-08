@@ -35,7 +35,6 @@
         <link rel="preconnect" href="https://cdnjs.cloudflare.com">
         <link rel="preconnect" href="https://unpkg.com">
         <link rel="preconnect" href="https://cdn.jsdelivr.net">
-        <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
         <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/dist/tabler-icons.min.css" />
@@ -46,36 +45,43 @@
 
         <header class="header">
             <a href="#home" class="logo">Eric <span>Quiambao</span></a>
-            <i class="bx bx-menu" id="menu-icon"></i>
+            <i class="bx bx-menu" id="menu-icon" aria-hidden="true"></i>
             <nav class="navbar">
-                <a class="hideOnMobile" href="#home">Home</a>
-                <!--<a class="hideOnMobile" href="#about">About</a>-->
-                <a class="hideOnMobile" href="#experience">Experience</a>
-                <a class="hideOnMobile" href="#education">Education</a>
-                <a class="hideOnMobile" href="#skills">Skills</a>
-                <a class="hideOnMobile" href="#projects">Projects</a>
-                <a class="hideOnMobile" href="#certificates">Certificates</a>
-                <button id="theme-toggle" class="color-btn" aria-label="Toggle color theme"><i class="ti ti-sun-moon"></i></button>
-                <button id="sidebar-open" class="color-btn" onclick="showSidebar()" aria-label="Open menu"><i class="ti ti-menu menu-button"></i></button>
-                
-                <ul class="sidebar">
-                    <li> <button id="sidebar-close" class="color-btn" onclick="hideSidebar()" aria-label="Close menu"><i class="ti ti-x"></i></button> </li>
-                    <li> <a href="#home">Home</a> </li>
-                    <li> <a href="#about">About</a> </li>
-                    <li> <a href="#experience">Experience</a> </li>
-                    <li> <a href="#education">Education</a> </li>
-                    <li> <a href="#skills">Skills</a></li>
-                    <li> <a href="#projects">Projects</a> </li>
-                    <li> <a href="#certificates">Certificates</a> </li>
-                </ul>
+                <div class="nav-container">
+                    <ul class="nav-menu">
+                        <li><a class="nav-link hideOnMobile" href="#home">Home</a></li>
+                        <!-- <li><a class="nav-link hideOnMobile" href="#about">About</a></li> -->
+                        <li><a class="nav-link hideOnMobile" href="#experience">Experience</a></li>
+                        <li><a class="nav-link hideOnMobile" href="#education">Education</a></li>
+                        <li><a class="nav-link hideOnMobile" href="#skills">Skills</a></li>
+                        <li><a class="nav-link hideOnMobile" href="#projects">Projects</a></li>
+                        <li><a class="nav-link hideOnMobile" href="#certificates">Certificates</a></li>
+                    </ul>
+
+                    <div class="nav-actions">
+                        <button id="theme-toggle" class="theme-toggle color-btn" aria-label="Toggle color theme"><i class="ti ti-sun-moon"></i></button>
+                        <button id="sidebar-open" class="color-btn" onclick="showSidebar()" aria-label="Open menu"><i class="ti ti-menu menu-button"></i></button>
+                    </div>
+
+                    <ul class="sidebar" aria-hidden="true">
+                        <li> <button id="sidebar-close" class="color-btn" onclick="hideSidebar()" aria-label="Close menu"><i class="ti ti-x"></i></button> </li>
+                        <li> <a href="#home">Home</a> </li>
+                        <li> <a href="#about">About</a> </li>
+                        <li> <a href="#experience">Experience</a> </li>
+                        <li> <a href="#education">Education</a> </li>
+                        <li> <a href="#skills">Skills</a></li>
+                        <li> <a href="#projects">Projects</a> </li>
+                        <li> <a href="#certificates">Certificates</a> </li>
+                    </ul>
+                </div>
             </nav>
         </header>
 
-        <section class="home" id="home">
-            <div class="home-content">
-                <h1>HI, IT'S <span>ERIC</span></h1>
-                <h3 class="text-animation">I'M A <span class="auto-type1"></span></h3>
-                <p>
+        <section class="hero home" id="home">
+            <div class="hero-content home-content">
+                <h1 class="hero-title">HI, IT'S <span>ERIC</span></h1>
+                <h3 class="hero-subtitle text-animation">I'M A <span class="auto-type1"></span></h3>
+                <p class="hero-description">
                     Hi I'm <span>Eric</span> but you can just call me <span>Sen</span>! <br>
                     I am a 4th Year Student Taking A <span>Bachelors of Science in Computer Science </span> at Tarlac State University (TSU) 
                 </p>
@@ -85,7 +91,7 @@
                     <a href="https://www.hackerrank.com/profile/Ensues" target="_blank" rel="noopener noreferrer"><i class="ti ti-brand-hackerrank"></i></a>
                     <a href="https://leetcode.com/u/ejanssenq/" target="_blank" rel="noopener noreferrer"><i class="ti ti-brand-leetcode"></i></a>
                 </div>
-                <div class="btn-group">
+                <div class="hero-cta btn-group">
                     <a href="https://www.linkedin.com/in/ericjanssenquiambao/" class="btn" target="_blank" rel="noopener noreferrer">Hire Me</a>
                     <!-- <a href="images/Quiambao Eric Janssen - Curriculum Vitae.pdf" class="btn">CV</a> -->
                 </div>
@@ -547,6 +553,6 @@
         </footer>
 
         <script defer src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
-        <script defer src="script.js"></script>
+        <script defer src="js/script.js"></script>
     </body>
 </html>
