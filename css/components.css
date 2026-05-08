@@ -1,0 +1,412 @@
+/* Components CSS - Modular component styles */
+
+/* Button components */
+.btn-primary {
+    background: var(--color-accent);
+    color: var(--text-primary);
+    border: 2px solid var(--color-accent);
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-lg);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn-primary:hover {
+    background: transparent;
+    color: var(--color-accent);
+    transform: scale(1.05);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--text-primary);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+    padding: 0.75rem 1.5rem;
+    border-radius: var(--radius-lg);
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-block;
+}
+
+.btn-secondary:hover {
+    border-color: var(--color-accent);
+    color: var(--color-accent);
+}
+
+.btn-ghost {
+    background: transparent;
+    color: var(--text-primary);
+    border: none;
+    padding: 0.5rem 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.btn-ghost:hover {
+    color: var(--color-accent);
+}
+
+/* Section headers */
+.section-header {
+    margin-bottom: var(--space-6);
+    text-align: center;
+}
+
+.section-header h2 {
+    font-size: 2.4rem;
+    margin-bottom: var(--space-2);
+    color: var(--text-primary);
+    position: relative;
+    display: inline-block;
+}
+
+.section-header h2::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 4px;
+    background: var(--color-accent);
+    border-radius: 2px;
+}
+
+.section-header p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin: var(--space-3) auto 0;
+    max-width: 600px;
+}
+
+/* Timeline component */
+.timeline {
+    position: relative;
+    padding: var(--space-4) 0;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 3px;
+    height: 100%;
+    background: var(--color-accent);
+}
+
+.timeline-item {
+    margin-bottom: var(--space-6);
+    position: relative;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 16px;
+    background: var(--color-accent);
+    border: 3px solid var(--color-bg);
+    border-radius: 50%;
+    top: 10px;
+}
+
+.timeline-content {
+    width: calc(50% - 2rem);
+}
+
+.timeline-item:nth-child(odd) .timeline-content {
+    margin-left: 0;
+    margin-right: auto;
+    text-align: right;
+}
+
+.timeline-item:nth-child(even) .timeline-content {
+    margin-left: auto;
+    margin-right: 0;
+    text-align: left;
+}
+
+/* Card component */
+.card-header {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    padding-bottom: var(--space-3);
+    margin-bottom: var(--space-3);
+}
+
+.card-header h3 {
+    font-size: 1.3rem;
+    color: var(--text-primary);
+    margin: 0;
+}
+
+.card-body {
+    padding: 0;
+}
+
+.card-footer {
+    border-top: 1px solid rgba(255, 255, 255, 0.06);
+    padding-top: var(--space-3);
+    margin-top: var(--space-3);
+    display: flex;
+    gap: var(--space-2);
+}
+
+/* Skills grid component */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: var(--space-3);
+}
+
+.skill-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-3);
+    background: rgba(255, 255, 255, 0.02);
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.skill-item:hover {
+    background: rgba(104, 158, 184, 0.1);
+    border-color: var(--color-accent);
+    transform: translateY(-4px);
+}
+
+.skill-icon-wrapper {
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(104, 158, 184, 0.1);
+    border-radius: var(--radius-md);
+    transition: all 0.3s ease;
+}
+
+.skill-item:hover .skill-icon-wrapper {
+    background: var(--color-accent);
+    color: var(--color-bg);
+}
+
+.skill-name {
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: center;
+    color: var(--text-primary);
+}
+
+/* Project card component */
+.project-card {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-4);
+    align-items: center;
+    padding: var(--space-4);
+    background: var(--color-surface);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: var(--radius-md);
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow-sm);
+}
+
+.project-image {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.project-image img {
+    width: 100%;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover .project-image img {
+    transform: scale(1.05);
+}
+
+.project-content h3 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: var(--space-2);
+}
+
+.project-content p {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-3);
+    line-height: 1.6;
+}
+
+.project-meta {
+    display: flex;
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+    flex-wrap: wrap;
+}
+
+.project-meta span {
+    font-size: 0.85rem;
+    padding: 0.3rem 0.8rem;
+    background: var(--color-accent);
+    color: var(--color-bg);
+    border-radius: var(--radius-sm);
+}
+
+/* Contact form component */
+.form-group {
+    margin-bottom: var(--space-4);
+}
+
+.form-label {
+    display: block;
+    margin-bottom: var(--space-1);
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.form-input,
+.form-textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    background: var(--color-surface);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--radius-md);
+    color: var(--text-primary);
+    font-family: inherit;
+    font-size: 0.95rem;
+    transition: all 0.3s ease;
+}
+
+.form-input:focus,
+.form-textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px rgba(104, 158, 184, 0.1);
+}
+
+.form-textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+/* Tab component */
+.tabs {
+    display: flex;
+    gap: var(--space-2);
+    border-bottom: 2px solid rgba(255, 255, 255, 0.06);
+    margin-bottom: var(--space-4);
+}
+
+.tab-btn {
+    padding: var(--space-2) var(--space-3);
+    background: none;
+    border: none;
+    border-bottom: 2px solid transparent;
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 600;
+}
+
+.tab-btn:hover {
+    color: var(--text-primary);
+}
+
+.tab-btn.active {
+    color: var(--color-accent);
+    border-bottom-color: var(--color-accent);
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+    animation: fadeIn 0.3s ease;
+}
+
+/* Navigation component */
+.breadcrumb {
+    display: flex;
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+    font-size: 0.9rem;
+}
+
+.breadcrumb a {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.breadcrumb a:hover {
+    color: var(--text-primary);
+}
+
+.breadcrumb span {
+    color: var(--text-secondary);
+}
+
+/* Badge component */
+.badge-group {
+    display: flex;
+    gap: var(--space-2);
+    flex-wrap: wrap;
+}
+
+.badge-pill {
+    padding: 0.5rem 1rem;
+    background: var(--color-surface);
+    border: 1px solid var(--color-accent);
+    color: var(--color-accent);
+    border-radius: 2rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.badge-pill:hover {
+    background: var(--color-accent);
+    color: var(--color-bg);
+}
+
+/* Responsive adjustments */
+@media (max-width: 895px) {
+    .project-card {
+        grid-template-columns: 1fr;
+    }
+
+    .timeline::before {
+        left: 15px;
+    }
+
+    .timeline-item:nth-child(odd) .timeline-content,
+    .timeline-item:nth-child(even) .timeline-content {
+        width: 100%;
+        margin: 0 0 0 50px;
+        text-align: left;
+    }
+
+    .timeline-marker {
+        left: 8px;
+    }
+
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+}
