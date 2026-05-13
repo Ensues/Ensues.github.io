@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#22c55e" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)" />
+  <circle cx="320" cy="420" r="120" fill="#14532d" opacity="0.7" />
+  <circle cx="820" cy="420" r="120" fill="#14532d" opacity="0.7" />
+  <rect x="300" y="240" width="600" height="40" rx="20" fill="#0b1224" opacity="0.7" />
+  <text x="180" y="180" fill="#dcfce7" font-size="44" font-family="Arial, sans-serif" font-weight="700">Cyclistic Bike Share</text>
+  <text x="180" y="225" fill="#bbf7d0" font-size="24" font-family="Arial, sans-serif">Analytics capstone with dashboards</text>
+</svg>

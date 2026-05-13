@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="675" viewBox="0 0 1200 675">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0f172a" />
+      <stop offset="100%" stop-color="#2563eb" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)" />
+  <circle cx="200" cy="140" r="90" fill="#38bdf8" opacity="0.7" />
+  <circle cx="1040" cy="520" r="150" fill="#1e40af" opacity="0.8" />
+  <rect x="120" y="420" width="960" height="120" rx="24" fill="#0b1224" opacity="0.7" />
+  <text x="160" y="490" fill="#e2e8f0" font-size="44" font-family="Arial, sans-serif" font-weight="700">Monocular VO</text>
+  <text x="160" y="535" fill="#94a3b8" font-size="24" font-family="Arial, sans-serif">Automated turn labeling and CSV generation</text>
+</svg>
