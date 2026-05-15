@@ -507,7 +507,7 @@ span{
 
 /* Education */
 .education{
-    padding-top: 30px;
+    padding-top: 8rem;
     background: var(--bg-color);
 }
 .education h2{
@@ -596,7 +596,7 @@ span{
 /* Skills */
 .skills{
     background: var(--second-bg-color);
-    padding-top: 25px;
+    padding-top: 8rem;
 }
 .skills .specifics{
     width: 95%;
@@ -692,7 +692,7 @@ span{
 
 /* Projects */
 .projects{
-    padding-top: 25px;
+    padding-top: 8rem;
     background: var(--bg-color);
     justify-content: space-evenly;
 }
@@ -826,19 +826,25 @@ span{
 .projects-view--detailed .project-stack{
     display: flex;
 }
-.projects-view--compact .project-card p{
+.projects-view--detailed .project-badges{
+    display: none;
+}
+.projects-view--compact .project-desc{
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
     overflow: hidden;
 }
+.projects-view--detailed .project-grid{
+    grid-template-columns: 1fr;
+}
 .projects-view--detailed .project-card{
-    gap: 1.8rem;
+    gap: 1.6rem;
 }
 
 /* Certificates */
 .certificates{
-    padding-top: 30px;
+    padding-top: 8rem;
     background: var(--second-bg-color);
 }
 .certificates .certificate-item {
@@ -905,6 +911,14 @@ span{
     height: 180px;
     object-fit: cover;
     border-radius: 1.2rem;
+}
+.certificate-preview .certificate-pdf{
+    width: 100%;
+    height: 180px;
+    border-radius: 1.2rem;
+    border: none;
+    pointer-events: none;
+    background: var(--bg-color);
 }
 .certificate-placeholder{
     height: 180px;

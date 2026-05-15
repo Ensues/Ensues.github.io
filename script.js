@@ -168,7 +168,7 @@ const featuredCertificates = [
     'Introduction to Deep Learning with PyTorch|DataCamp'
 ];
 
-const projectsData = [
+let projectsData = [
     {
         name: 'Ensues.github.io',
         html_url: 'https://github.com/Ensues/Ensues.github.io',
@@ -434,28 +434,12 @@ const featuredProjects = [
     'Job-Search-Tracker-Analytics-Dashboard',
     'Credit-Card-Fraud-Detection',
     'Analyzing-Cyclistic-Bike-Share-Data',
-    'Auto-File-Management'
+    'Auto-File-Management',
+    'Ensues.github.io'
 ];
 
-const projectImages = {
-    'Monocular-VO-for-Automated-Turn-Labeling-and-CSV-Generation': 'images/projects/monocular-vo.svg',
-    'ConvLSTM': 'images/projects/convlstm.svg',
-    'EluSEEdate-Mobile-App': 'images/projects/eluseedate.svg',
-    'Job-Search-Tracker-Analytics-Dashboard': 'images/projects/job-search-dashboard.svg',
-    'Credit-Card-Fraud-Detection': 'images/projects/credit-card-fraud.svg',
-    'Analyzing-Cyclistic-Bike-Share-Data': 'images/projects/cyclistic-bike-share.svg',
-    'Auto-File-Management': 'images/projects/auto-file-management.svg'
-};
-
-const projectStacks = {
-    'Monocular-VO-for-Automated-Turn-Labeling-and-CSV-Generation': ['Python', 'Computer Vision', 'Geometry'],
-    'ConvLSTM': ['Jupyter', 'Deep Learning', 'ConvLSTM'],
-    'EluSEEdate-Mobile-App': ['TypeScript', 'Mobile App'],
-    'Job-Search-Tracker-Analytics-Dashboard': ['TypeScript', 'Analytics', 'Dashboard', 'Vercel'],
-    'Credit-Card-Fraud-Detection': ['Jupyter', 'Python', 'Logistic Regression'],
-    'Analyzing-Cyclistic-Bike-Share-Data': ['BigQuery', 'Google Sheets', 'Tableau'],
-    'Auto-File-Management': ['Python', 'Automation', 'File I/O']
-};
+const projectReadmeCache = new Map();
+const projectReadmeStacks = new Map();
 
 const issuerOverrides = {
     CISCO: 'Cisco',
@@ -599,20 +583,22 @@ function formatStackBadge(label) {
         TypeScript: { logo: 'typescript', color: '3178C6' },
         Python: { logo: 'python', color: '3670A0' },
         Jupyter: { logo: 'jupyter', color: 'F37726' },
-        'Computer Vision': { color: '6A5ACD' },
-        Geometry: { color: '5E35B1' },
-        'Deep Learning': { color: '4A148C' },
-        ConvLSTM: { color: '7C4DFF' },
+        React: { logo: 'react', color: '61DAFB', logoColor: '000000' },
+        Expo: { logo: 'expo', color: '000020' },
+        OpenCV: { logo: 'opencv', color: '5C3EE8' },
+        NumPy: { logo: 'numpy', color: '013243' },
+        Pandas: { logo: 'pandas', color: '150458' },
+        'scikit-learn': { logo: 'scikit-learn', color: 'F7931E' },
+        TensorFlow: { logo: 'tensorflow', color: 'FF6F00' },
+        PyTorch: { logo: 'pytorch', color: 'EE4C2C' },
         BigQuery: { logo: 'googlebigquery', color: '669DF6' },
         'Google Sheets': { logo: 'googlesheets', color: '34A853' },
         Tableau: { logo: 'tableau', color: 'E97627' },
         Vercel: { logo: 'vercel', color: '000000', logoColor: 'white' },
-        Analytics: { color: '0F9D58' },
-        Dashboard: { color: '0B8043' },
-        'Logistic Regression': { color: '5C6BC0' },
-        Automation: { color: 'FF6F00' },
-        'File I/O': { color: '6D4C41' },
-        'Mobile App': { color: '00897B' }
+        Git: { logo: 'git', color: 'F05032' },
+        Laravel: { logo: 'laravel', color: 'FF2D20' },
+        'Tailwind CSS': { logo: 'tailwindcss', color: '06B6D4' },
+        Vite: { logo: 'vite', color: '646CFF' }
     };
     const entry = map[label] || { color: '607D8B' };
     const badgeLabel = encodeURIComponent(label);
@@ -622,10 +608,362 @@ function formatStackBadge(label) {
 }
 
 function getProjectStack(project) {
-    if (projectStacks[project.name]) return projectStacks[project.name];
+    const readmeStack = projectReadmeStacks.get(project.name);
+    if (readmeStack && readmeStack.length) return readmeStack;
     if (!project.language) return [];
     if (project.language === 'Jupyter Notebook') return ['Jupyter'];
     return [project.language];
+}
+
+function buildProjectTechStack(project) {
+    const stack = getProjectStack(project);
+    const unique = new Map();
+
+    stack.forEach(label => {
+        const normalized = normalizeTechLabel(label);
+        if (normalized && !unique.has(normalized.toLowerCase())) {
+            unique.set(normalized.toLowerCase(), normalized);
+        }
+    });
+
+    if (project.language) {
+        const languageLabel = project.language === 'Jupyter Notebook' ? 'Jupyter' : project.language;
+        const normalized = normalizeTechLabel(languageLabel) || languageLabel;
+        if (normalized && !unique.has(normalized.toLowerCase())) {
+            unique.set(normalized.toLowerCase(), normalized);
+        }
+    }
+
+    return Array.from(unique.values());
+}
+
+function normalizeAscii(text) {
+    return text.normalize('NFKD').replace(/[^ -]/g, '');
+}
+
+function cleanReadmeText(text) {
+    return text
+        .replace(/```[\s\S]*?```/g, '')
+        .replace(/`[^`]*`/g, '')
+        .replace(/!\[[^\]]*\]\([^)]*\)/g, '')
+        .replace(/\[([^\]]+)\]\([^)]*\)/g, '$1')
+        .replace(/<[^>]+>/g, '')
+        .replace(/^#+\s.*$/gm, '')
+        .replace(/\r/g, '')
+        .trim();
+}
+
+function extractReadmeExcerpt(text) {
+    const cleaned = cleanReadmeText(text);
+    const parts = cleaned.split(/\n\s*\n/);
+    const paragraph = (parts.find(part => part.trim().length > 60) || parts[0] || '').trim();
+    if (!paragraph) return '';
+    let excerpt = paragraph.replace(/\s+/g, ' ').trim();
+    excerpt = normalizeAsciiSafe(excerpt);
+    if (excerpt.length > 240) {
+        excerpt = `${excerpt.slice(0, 237).trim()}...`;
+    }
+    return excerpt;
+}
+
+function normalizeAsciiSafe(text) {
+    return text.normalize('NFKD').replace(/[^\u0000-\u007F]/g, '');
+}
+
+function cleanStackLabel(label) {
+    return label
+        .replace(/\*\*/g, '')
+        .replace(/[_`]/g, '')
+        .replace(/\s+/g, ' ')
+        .replace(/^[-*+\d.\s]+/, '')
+        .trim();
+}
+
+const TECH_ALIASES = {
+    html5: 'HTML',
+    html: 'HTML',
+    css3: 'CSS',
+    css: 'CSS',
+    javascript: 'JavaScript',
+    js: 'JavaScript',
+    typescript: 'TypeScript',
+    ts: 'TypeScript',
+    python: 'Python',
+    r: 'R',
+    java: 'Java',
+    php: 'PHP',
+    sql: 'SQL',
+    mysql: 'MySQL',
+    postgresql: 'PostgreSQL',
+    sqlite: 'SQLite',
+    react: 'React',
+    'react native': 'React Native',
+    expo: 'Expo',
+    'node.js': 'Node.js',
+    nodejs: 'Node.js',
+    vite: 'Vite',
+    'tailwind css': 'Tailwind CSS',
+    tailwind: 'Tailwind CSS',
+    laravel: 'Laravel',
+    '.net': '.NET',
+    dotnet: '.NET',
+    jupyter: 'Jupyter',
+    pandas: 'Pandas',
+    numpy: 'NumPy',
+    'scikit-learn': 'scikit-learn',
+    'scikit learn': 'scikit-learn',
+    sklearn: 'scikit-learn',
+    tensorflow: 'TensorFlow',
+    pytorch: 'PyTorch',
+    opencv: 'OpenCV',
+    ffmpeg: 'FFmpeg',
+    matplotlib: 'Matplotlib',
+    seaborn: 'Seaborn',
+    kaggle: 'Kaggle',
+    bigquery: 'BigQuery',
+    'google sheets': 'Google Sheets',
+    tableau: 'Tableau',
+    vercel: 'Vercel',
+    git: 'Git',
+    github: 'GitHub',
+    'google colab': 'Google Colab',
+    colab: 'Google Colab',
+    excel: 'Excel',
+    'power bi': 'Power BI',
+    flask: 'Flask',
+    django: 'Django',
+    fastapi: 'FastAPI',
+    streamlit: 'Streamlit'
+};
+
+const NON_TECH_TERMS = [
+    'linkedin',
+    'discord',
+    'credly',
+    'leetcode',
+    'hackerrank',
+    'sololearn',
+    'portfolio',
+    'resume',
+    'website',
+    'profile'
+];
+
+function normalizeTechLabel(label) {
+    if (!label) return '';
+    let value = cleanStackLabel(label);
+    if (!value) return '';
+
+    const splitters = [' - ', ': '];
+    splitters.forEach(splitter => {
+        if (value.includes(splitter)) value = value.split(splitter)[0].trim();
+    });
+    if (value.toLowerCase().includes(' for ') && value.length > 20) {
+        value = value.split(/\s+for\s+/i)[0].trim();
+    }
+
+    value = value.replace(/\s*\(.*\)\s*/g, '').replace(/[.]+$/g, '').trim();
+    let normalized = value.toLowerCase().replace(/[^a-z0-9.+#\s]/g, '').trim();
+    if (!normalized) return '';
+    if (NON_TECH_TERMS.some(term => normalized.includes(term))) return '';
+
+    if (normalized.startsWith('google ')) {
+        normalized = normalized.replace('google ', '').trim();
+    }
+    if (normalized.endsWith(' public')) {
+        normalized = normalized.replace(' public', '').trim();
+    }
+
+    const alias = TECH_ALIASES[normalized];
+    return alias || '';
+}
+
+function extractShieldLabelFromUrl(url) {
+    if (!url) return '';
+    const labelParam = url.match(/[?&]label=([^&]+)/i);
+    if (labelParam && labelParam[1]) {
+        return decodeURIComponent(labelParam[1]).replace(/_/g, ' ').trim();
+    }
+
+    const badgeMatch = url.match(/\/badge\/([^/?]+)(?:\?|$)/i);
+    if (!badgeMatch || !badgeMatch[1]) return '';
+    const raw = decodeURIComponent(badgeMatch[1]);
+    const parts = raw.split('-');
+    if (parts.length > 1) parts.pop();
+    return parts.join(' ').replace(/_/g, ' ').trim();
+}
+
+function extractTechStack(text) {
+    const lines = text.replace(/\r/g, '').split('\n');
+    const headings = ['technologies used', 'tech stack', 'stack', 'languages used', 'built with', 'tools'];
+    let startIndex = -1;
+    let inCodeBlock = false;
+
+    for (let i = 0; i < lines.length; i += 1) {
+        const raw = lines[i];
+        const trimmed = raw.trim();
+        if (trimmed.startsWith('```')) {
+            inCodeBlock = !inCodeBlock;
+            continue;
+        }
+        if (inCodeBlock) continue;
+        const line = trimmed
+            .toLowerCase()
+            .replace(/^#+\s*/, '')
+            .replace(/[\*_`]/g, '')
+            .trim();
+        if (headings.some(heading => line.startsWith(heading))) {
+            startIndex = i + 1;
+            break;
+        }
+    }
+
+    const items = [];
+    if (startIndex >= 0) {
+        inCodeBlock = false;
+        for (let i = startIndex; i < lines.length; i += 1) {
+            const raw = lines[i];
+            const trimmed = raw.trim();
+            if (trimmed.startsWith('```')) {
+                inCodeBlock = !inCodeBlock;
+                continue;
+            }
+            if (inCodeBlock) continue;
+            if (/^#+\s/.test(trimmed)) break;
+            if (/^\s*[-*+]\s+/.test(trimmed)) {
+                const label = cleanStackLabel(trimmed.replace(/^\s*[-*+]\s+/, ''));
+                if (label) items.push(label);
+            }
+        }
+    }
+
+    if (startIndex < 0) {
+        lines.forEach(line => {
+            const trimmed = line.trim();
+            if (!/^\s*[-*+]\s+/.test(trimmed)) return;
+            const label = cleanStackLabel(trimmed.replace(/^\s*[-*+]\s+/, ''));
+            const normalized = normalizeTechLabel(label);
+            if (normalized) items.push(normalized);
+        });
+    }
+
+    const badgeMatches = Array.from(text.matchAll(/!\[([^\]]*)\]\(([^)]*shields\.io[^)]*)\)/gi));
+    badgeMatches.forEach(match => {
+        const altLabel = normalizeTechLabel(match[1] || '');
+        const urlLabel = normalizeTechLabel(extractShieldLabelFromUrl(match[2] || ''));
+        if (altLabel) items.push(altLabel);
+        if (urlLabel) items.push(urlLabel);
+    });
+
+    const unique = new Map();
+    items.forEach(item => {
+        const normalized = normalizeTechLabel(item);
+        if (normalized && !unique.has(normalized.toLowerCase())) {
+            unique.set(normalized.toLowerCase(), normalized);
+        }
+    });
+    return Array.from(unique.values());
+}
+
+async function fetchReadmeText(project) {
+    if (projectReadmeCache.has(project.name)) return projectReadmeCache.get(project.name);
+    const owner = 'Ensues';
+    const branches = [project.default_branch, 'main', 'master'].filter(Boolean);
+    const uniqueBranches = Array.from(new Set(branches));
+    const urls = uniqueBranches.map(branch => (
+        `https://raw.githubusercontent.com/${owner}/${project.name}/${branch}/README.md`
+    ));
+
+    for (const url of urls) {
+        try {
+            const response = await fetch(url, { cache: 'force-cache' });
+            if (response.ok) {
+                const text = await response.text();
+                if (text && text.trim().length > 20) {
+                    projectReadmeCache.set(project.name, text);
+                    return text;
+                }
+            }
+        } catch (error) {
+            continue;
+        }
+    }
+
+    projectReadmeCache.set(project.name, '');
+    return '';
+}
+
+function updateProjectCardContent(card, project, readmeText) {
+    if (project.name === 'Ensues') {
+        const badges = card.querySelector('.project-badges');
+        const stack = card.querySelector('.project-stack');
+        if (badges) badges.innerHTML = '';
+        if (stack) stack.innerHTML = '';
+        return;
+    }
+    const excerpt = extractReadmeExcerpt(readmeText);
+    const desc = card.querySelector('.project-desc');
+    if (excerpt && desc) desc.textContent = excerpt;
+
+    const stackItems = extractTechStack(readmeText);
+    if (stackItems.length) projectReadmeStacks.set(project.name, stackItems);
+
+    const badges = card.querySelector('.project-badges');
+    const stack = card.querySelector('.project-stack');
+    if (!badges || !stack) return;
+
+    badges.innerHTML = '';
+    stack.innerHTML = '';
+
+    const updatedStack = buildProjectTechStack(project);
+    updatedStack.forEach(label => {
+        const img = document.createElement('img');
+        img.alt = label;
+        img.src = formatStackBadge(label);
+        badges.appendChild(img);
+    });
+    updatedStack.forEach(label => {
+        const img = document.createElement('img');
+        img.alt = label;
+        img.src = formatStackBadge(label);
+        stack.appendChild(img);
+    });
+}
+
+async function enhanceProjectsFromReadmes() {
+    const cards = Array.from(document.querySelectorAll('.project-card[data-project-name]'));
+    const projectMap = new Map(projectsData.map(project => [project.name, project]));
+
+    await Promise.all(cards.map(async card => {
+        const projectName = card.dataset.projectName;
+        const project = projectMap.get(projectName);
+        if (!project) return;
+        const readmeText = await fetchReadmeText(project);
+        if (!readmeText) return;
+        updateProjectCardContent(card, project, readmeText);
+    }));
+}
+
+async function loadProjectsFromGitHub() {
+    const apiUrl = 'https://api.github.com/users/Ensues/repos?per_page=100&sort=updated';
+    try {
+        const response = await fetch(apiUrl, { cache: 'no-store' });
+        if (!response.ok) return false;
+        const repos = await response.json();
+        const visibleRepos = repos.filter(repo => !repo.fork && !repo.archived);
+        projectsData = visibleRepos.map(repo => ({
+            name: repo.name,
+            html_url: repo.html_url,
+            description: repo.description || '',
+            homepage: repo.homepage || '',
+            language: repo.language,
+            updated_at: repo.updated_at,
+            default_branch: repo.default_branch || 'main'
+        }));
+        return true;
+    } catch (error) {
+        return false;
+    }
 }
 
 function renderCertificates() {
@@ -634,8 +972,9 @@ function renderCertificates() {
     if (certCount) certCount.textContent = String(cards.length);
 
     const grid = document.getElementById('certificates-grid');
-    if (!grid) return;
+    if (!grid || grid.dataset.static === 'true') return;
     const featuredGrid = document.getElementById('featured-certificates');
+    if (featuredGrid && featuredGrid.dataset.static === 'true') return;
     grid.innerHTML = '';
     if (featuredGrid) featuredGrid.innerHTML = '';
 
@@ -657,6 +996,13 @@ function renderCertificates() {
             img.alt = `${cert.title} certificate`;
             img.loading = 'lazy';
             preview.appendChild(img);
+        } else if (cert.file && isPdf(cert.file)) {
+            const iframe = document.createElement('iframe');
+            iframe.className = 'certificate-pdf';
+            iframe.src = `${encodeURI(cert.file)}#toolbar=0&navpanes=0&scrollbar=0&view=FitH`;
+            iframe.setAttribute('aria-label', `${cert.title} certificate preview`);
+            iframe.setAttribute('loading', 'lazy');
+            preview.appendChild(iframe);
         } else {
             const placeholder = document.createElement('div');
             placeholder.className = 'certificate-placeholder';
@@ -716,6 +1062,8 @@ function renderProjects() {
     const featuredGrid = document.getElementById('featured-projects');
     const grid = document.getElementById('projects-grid');
     if (!grid && !featuredGrid) return;
+    if (grid && grid.dataset.static === 'true') return;
+    if (featuredGrid && featuredGrid.dataset.static === 'true') return;
 
     const featuredSet = new Set(featuredProjects);
     const sorted = [...projectsData].sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
@@ -730,22 +1078,11 @@ function renderProjects() {
         const card = document.createElement('article');
         card.className = 'project-card';
 
-        const imageSrc = projectImages[project.name];
-        if (imageSrc) {
-            const imageWrap = document.createElement('div');
-            imageWrap.className = 'project-image';
-            const image = document.createElement('img');
-            image.src = encodeURI(imageSrc);
-            image.alt = `${formatRepoTitle(project.name)} preview`;
-            image.loading = 'lazy';
-            imageWrap.appendChild(image);
-            card.appendChild(imageWrap);
-        }
-
         const title = document.createElement('h3');
         title.textContent = formatRepoTitle(project.name);
 
         const desc = document.createElement('p');
+        desc.className = 'project-desc';
         desc.textContent = project.description || 'Project overview coming soon.';
 
         const meta = document.createElement('p');
@@ -754,20 +1091,9 @@ function renderProjects() {
 
         const badges = document.createElement('div');
         badges.className = 'project-badges';
-        const languageBadge = formatLanguageBadge(project.language);
-        if (languageBadge) {
-            const img = document.createElement('img');
-            img.alt = project.language || 'Language';
-            img.src = languageBadge;
-            badges.appendChild(img);
-        }
 
-        const stackItems = getProjectStack(project).filter(label => {
-            if (!project.language) return true;
-            if (project.language === 'Jupyter Notebook' && label === 'Jupyter') return false;
-            return label.toLowerCase() !== project.language.toLowerCase();
-        });
-        stackItems.slice(0, 2).forEach(label => {
+        const stackItems = buildProjectTechStack(project);
+        stackItems.forEach(label => {
             const img = document.createElement('img');
             img.alt = label;
             img.src = formatStackBadge(label);
@@ -810,6 +1136,7 @@ function renderProjects() {
         card.appendChild(stack);
         card.appendChild(actions);
 
+        card.dataset.projectName = project.name;
         all.push(card);
     });
 
@@ -819,22 +1146,11 @@ function renderProjects() {
             const card = document.createElement('article');
             card.className = 'project-card';
 
-            const imageSrc = projectImages[project.name];
-            if (imageSrc) {
-                const imageWrap = document.createElement('div');
-                imageWrap.className = 'project-image';
-                const image = document.createElement('img');
-                image.src = encodeURI(imageSrc);
-                image.alt = `${formatRepoTitle(project.name)} preview`;
-                image.loading = 'lazy';
-                imageWrap.appendChild(image);
-                card.appendChild(imageWrap);
-            }
-
             const title = document.createElement('h3');
             title.textContent = formatRepoTitle(project.name);
 
             const desc = document.createElement('p');
+            desc.className = 'project-desc';
             desc.textContent = project.description || 'Project overview coming soon.';
 
             const meta = document.createElement('p');
@@ -843,20 +1159,9 @@ function renderProjects() {
 
             const badges = document.createElement('div');
             badges.className = 'project-badges';
-            const languageBadge = formatLanguageBadge(project.language);
-            if (languageBadge) {
-                const img = document.createElement('img');
-                img.alt = project.language || 'Language';
-                img.src = languageBadge;
-                badges.appendChild(img);
-            }
 
-            const stackItems = getProjectStack(project).filter(label => {
-                if (!project.language) return true;
-                if (project.language === 'Jupyter Notebook' && label === 'Jupyter') return false;
-                return label.toLowerCase() !== project.language.toLowerCase();
-            });
-            stackItems.slice(0, 2).forEach(label => {
+            const stackItems = buildProjectTechStack(project);
+            stackItems.forEach(label => {
                 const img = document.createElement('img');
                 img.alt = label;
                 img.src = formatStackBadge(label);
@@ -899,6 +1204,7 @@ function renderProjects() {
             card.appendChild(stack);
             card.appendChild(actions);
 
+            card.dataset.projectName = project.name;
             featuredGrid.appendChild(card);
         });
     }
@@ -934,5 +1240,13 @@ function initProjectViewToggle() {
 }
 
 renderCertificates();
-renderProjects();
 initProjectViewToggle();
+const staticProjects = document.getElementById('projects-grid')?.dataset.static === 'true'
+    || document.getElementById('featured-projects')?.dataset.static === 'true';
+
+if (!staticProjects) {
+    loadProjectsFromGitHub().finally(() => {
+        renderProjects();
+        enhanceProjectsFromReadmes();
+    });
+}
