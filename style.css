@@ -868,11 +868,16 @@ span{
     gap: 1.5rem;
     min-height: 260px;
 }
+.certificate-preview a{
+    display: block;
+    cursor: pointer;
+}
 .certificate-preview img{
     width: 100%;
     height: 180px;
     object-fit: cover;
     border-radius: 1.2rem;
+    display: block;
 }
 .certificate-preview .certificate-pdf{
     width: 100%;
