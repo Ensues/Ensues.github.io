@@ -1321,7 +1321,7 @@ body.light-mode .footer .social a:hover{
     color: var(--light-text-color);
 }
 .light-mode .metric-card{
-    background: rgba(0,0,0,0.03);
+    background: var(--light-bg-color);
     border-color: rgba(0,0,0,0.08);
 }
 .light-mode .section-title{
