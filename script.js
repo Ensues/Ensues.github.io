@@ -1239,6 +1239,94 @@ function initProjectViewToggle() {
     });
 }
 
+function setupTopTenCollection({ featuredGridId, allGridId, selectedTitles, gridClass, itemLabel, featuredHeading, allHeading }) {
+    const featuredGrid = document.getElementById(featuredGridId);
+    const allGrid = document.getElementById(allGridId);
+    if (!featuredGrid || !allGrid || featuredGrid.dataset.static !== 'true' || allGrid.dataset.static !== 'true') return;
+
+    const cards = [...featuredGrid.children, ...allGrid.children];
+    const cardsByTitle = new Map(cards.map(card => [card.querySelector('h3')?.textContent.trim(), card]));
+    const selectedCards = selectedTitles.map(title => cardsByTitle.get(title)).filter(Boolean);
+    const missingTitles = selectedTitles.filter(title => !cardsByTitle.has(title));
+    if (missingTitles.length) {
+        console.error(`Unable to find selected ${itemLabel}: ${missingTitles.join(', ')}`);
+    }
+
+    const selectedSet = new Set(selectedCards);
+    const remainingCards = cards.filter(card => !selectedSet.has(card));
+    const featuredSection = featuredGrid.closest('.featured-projects, .featured-certs');
+    const allSection = allGrid.closest('.all-projects, .all-certs');
+    const featuredHeadingElement = featuredSection?.querySelector('.section-title');
+    const allHeadingElement = allSection?.querySelector('.section-title');
+    if (featuredHeadingElement) featuredHeadingElement.textContent = featuredHeading;
+    if (allHeadingElement) allHeadingElement.textContent = allHeading;
+
+    featuredGrid.replaceChildren(...selectedCards);
+    allGrid.remove();
+    if (!remainingCards.length || !allSection) return;
+
+    const details = document.createElement('details');
+    details.className = 'collection-details';
+    const summary = document.createElement('summary');
+    summary.className = 'btn collection-summary';
+    summary.textContent = `Show ${remainingCards.length} more ${itemLabel}`;
+    const indicator = document.createElement('span');
+    indicator.className = 'collection-indicator';
+    indicator.setAttribute('aria-hidden', 'true');
+    indicator.textContent = '+';
+    summary.appendChild(indicator);
+    details.addEventListener('toggle', () => {
+        indicator.textContent = details.open ? '\u2212' : '+';
+    });
+    const remainingGrid = document.createElement('div');
+    remainingGrid.className = gridClass;
+    remainingCards.forEach(card => remainingGrid.appendChild(card));
+    details.append(summary, remainingGrid);
+    allSection.appendChild(details);
+}
+
+setupTopTenCollection({
+    featuredGridId: 'featured-projects',
+    allGridId: 'projects-grid',
+    selectedTitles: [
+        'Monocular VO for Automated Turn Labeling and CSV Generation',
+        'ConvLSTM',
+        'EluSEEdate Mobile App',
+        'Job Search Tracker Analytics Dashboard',
+        'Analyzing Cyclistic Bike Share Data',
+        'Credit Card Fraud Detection',
+        'Anemia Prediction',
+        'Titanic Survival Prediction',
+        'Sales Prediction Using Python',
+        'Auto File Management'
+    ],
+    gridClass: 'project-grid',
+    itemLabel: 'projects',
+    featuredHeading: 'Top 10 Projects',
+    allHeading: 'More Projects'
+});
+
+setupTopTenCollection({
+    featuredGridId: 'featured-certificates',
+    allGridId: 'certificates-grid',
+    selectedTitles: [
+        'Google Data Analysis',
+        'Google Business Intelligence',
+        'IBM Artificial Intelligence Fundamentals',
+        'Introduction to Deep Learning with PyTorch',
+        'GitHub Foundations',
+        'Python for Data Science',
+        'Introduction to Data Science',
+        'Google AI Essentials',
+        'Business Analytics Concepts and Frameworks',
+        'Deloitte Data Analytics'
+    ],
+    gridClass: 'certificate-grid',
+    itemLabel: 'certificates',
+    featuredHeading: 'Top 10 Relevant Certificates',
+    allHeading: 'More Certificates'
+});
+
 renderCertificates();
 initProjectViewToggle();
 const staticProjects = document.getElementById('projects-grid')?.dataset.static === 'true'
