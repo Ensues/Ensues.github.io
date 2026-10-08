@@ -969,7 +969,7 @@ async function loadProjectsFromGitHub() {
 function renderCertificates() {
     const cards = buildCertificateCards();
     const certCount = document.getElementById('metric-certs');
-    if (certCount) certCount.textContent = String(cards.length);
+    if (certCount) certCount.textContent = cards.length > 50 ? '50+' : String(cards.length);
 
     const grid = document.getElementById('certificates-grid');
     if (!grid || grid.dataset.static === 'true') return;
@@ -1239,7 +1239,7 @@ function initProjectViewToggle() {
     });
 }
 
-function setupTopTenCollection({ featuredGridId, allGridId, selectedTitles, gridClass, itemLabel, featuredHeading, allHeading }) {
+function setupTopTenCollection({ featuredGridId, allGridId, selectedTitles, gridClass, itemLabel, featuredHeading, allHeading, descriptionsByTitle = {} }) {
     const featuredGrid = document.getElementById(featuredGridId);
     const allGrid = document.getElementById(allGridId);
     if (!featuredGrid || !allGrid || featuredGrid.dataset.static !== 'true' || allGrid.dataset.static !== 'true') return;
@@ -1247,6 +1247,12 @@ function setupTopTenCollection({ featuredGridId, allGridId, selectedTitles, grid
     const cards = [...featuredGrid.children, ...allGrid.children];
     const cardsByTitle = new Map(cards.map(card => [card.querySelector('h3')?.textContent.trim(), card]));
     const selectedCards = selectedTitles.map(title => cardsByTitle.get(title)).filter(Boolean);
+    selectedCards.forEach(card => {
+        const title = card.querySelector('h3')?.textContent.trim();
+        const description = descriptionsByTitle[title];
+        const descriptionElement = card.querySelector('.project-desc');
+        if (description && descriptionElement) descriptionElement.textContent = description;
+    });
     const missingTitles = selectedTitles.filter(title => !cardsByTitle.has(title));
     if (missingTitles.length) {
         console.error(`Unable to find selected ${itemLabel}: ${missingTitles.join(', ')}`);
@@ -1295,11 +1301,23 @@ setupTopTenCollection({
         'Job Search Tracker Analytics Dashboard',
         'Analyzing Cyclistic Bike Share Data',
         'Credit Card Fraud Detection',
-        'Anemia Prediction',
+        'College Appointment Site',
         'Titanic Survival Prediction',
         'Sales Prediction Using Python',
         'Auto File Management'
     ],
+    descriptionsByTitle: {
+        'Monocular VO for Automated Turn Labeling and CSV Generation': 'Estimates vehicle motion from a single-camera video stream, classifies movement as left, right, or forward, and exports turn labels to CSV.',
+        ConvLSTM: 'Uses 3-second video clips and a ConvLSTM model to predict front, left, or right maneuvers for an assistive-navigation workflow.',
+        'EluSEEdate Mobile App': 'React Native and Expo mobile app for real-time turn prediction, using a ConvLSTM model with TensorFlow Lite inference.',
+        'Job Search Tracker Analytics Dashboard': 'Full-stack application for tracking job applications, viewing progress in an analytics dashboard, and exporting records for further analysis.',
+        'Analyzing Cyclistic Bike Share Data': 'Uses SQL, R, and Tableau to analyze Cyclistic bike-share data and communicate usage patterns through visualizations.',
+        'Credit Card Fraud Detection': 'Preprocesses credit-card transaction data and trains a logistic-regression model to identify potentially fraudulent transactions.',
+        'College Appointment Site': 'Appointment-scheduling system for the Tarlac State University Registrar’s Office, designed to streamline student access to services.',
+        'Titanic Survival Prediction': 'Explores passenger data to predict Titanic survival using passenger class, sex, and age, then examines how those features relate to outcomes.',
+        'Sales Prediction Using Python': 'Uses advertising spend across TV, radio, and newspaper channels to model sales and compare each channel’s relationship with outcomes.',
+        'Auto File Management': 'Automatically sorts files into folders by type, including images, videos, audio, and documents, using Python.'
+    },
     gridClass: 'project-grid',
     itemLabel: 'projects',
     featuredHeading: 'Top 10 Projects',

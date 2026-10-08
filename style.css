@@ -367,7 +367,6 @@ span{
 }
 .home-content h1{
     font-size:7rem;
-    z-index: 9999;
     font-weight: 700;
     margin-top: 1.5rem;
     line-height: 1;
@@ -1462,6 +1461,9 @@ body.light-mode .footer .social a:hover{
     }
     .navbar.active{
         display: block;
+    }
+    body.light-mode .navbar.active{
+        background: rgba(240,240,240,0.98);
     }
     .navbar a{
         display: block;
